@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Deluxe Suite",
+    "maxcount": 4,
+    "phonenumber": 1234567890,
+    "rentperday": 150,
+    "imageurls": [     
+
+       "https://photos.mandarinoriental.com/is/image/MandarinOriental/dmo-The-worlds-most-romantic-hotel-suites-dubai-royal-penthouse-bedroom",
+      "https://tse3.mm.bing.net/th?id=OIP.EHkOkOQcMloWfrd2qDWn9wHaE8&pid=Api&P=0&h=180",
+      "https://tse1.mm.bing.net/th?id=OIP.mF47tsfspkf9-z1gzxHOfwHaFj&pid=Api&P=0&h=180"
+    ],
+    "currentbooking": [
+     
+    ],
+    "type": "Delux",
+    "description": "A luxurious suite with a king-size bed, ocean view, and private balcony."
+  },
+  {
+    "name": "Standard Double",
+    "maxcount": 2,
+    "phonenumber": 9876543210,
+    "rentperday": 80,
+    "imageurls": [
+       "http://www.grandlordhotel.com/medias/room/big/79/deluxe04.jpg",
+      "https://d3rg18dos0rgue.cloudfront.net/wp-content/uploads/sites/3/2017/12/Deluxe-Suite-Bed-Roxy.jpg",
+      "https://d3rg18dos0rgue.cloudfront.net/wp-content/uploads/sites/2/2022/02/2-Bed-Suite-scaled.jpg"
+    ],
+    "currentbooking": [],
+    "type": "Delux",
+    "description": "A comfortable double room with city view, perfect for two guests."
+  },
+  {
+    "name": "Family Room",
+    "maxcount": 6,
+    "phonenumber": 1029384756,
+    "rentperday": 200,
+    "imageurls": [
+      "https://images.trvl-media.com/lodging/4000000/3950000/3946100/3946034/23710a8c.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium",
+      "https://tse1.mm.bing.net/th?id=OIP.AMUuUDLvquy7yTumeYHrWwHaFc&pid=Api&P=0&h=180",
+      "https://tse2.mm.bing.net/th?id=OIP.HTFVSjW0AzqZkaF5O3XpcgHaEJ&pid=Api&P=0&h=180"
+    ],
+    "currentbooking": [
+     
+    ],
+    "type": "Non-delux",
+    "description": "Spacious room ideal for families, with two queen-size beds and a cozy living area."
+  },
+  {
+    "name": "Single Room",
+    "maxcount": 1,
+    "phonenumber": 1122334455,
+    "rentperday": 50,
+    "imageurls": [
+      "https://3.imimg.com/data3/TP/SK/MY-12478236/non-ac-delux-room-1000x1000.jpg",
+      "https://www.vajraheritage.com/images/single_max.jpg",
+      "https://www.brgbudgetstay.com/storage/rooms/deluxe-non-ac-double-sharing-room/2.PNG"
+    ],
+    "currentbooking": [],
+    "type": "Non-delux",
+    "description": "Compact room for solo travelers, includes a comfortable bed and work desk."
+  }
+ 
+]
