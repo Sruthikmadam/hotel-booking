@@ -1,17 +1,8 @@
 const express=require("express")
-// const mongoose=require("mongoose")
+
 const router=express.Router()
 const User= require("../models/user.js")
-// router.post('/register',async(req,res)=>{
-//     const newuser=new User(req.body)
-//     console.log(newuser)
-//   try {
-//     const user=await newuser.save()
-//     return res.send("success")
-//   } catch (error) {
-//     return res.status(400).json({message:"some error"})
-//   }
-// });
+
 
 
 
@@ -40,7 +31,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// module.exports = router;
+
 
 router.post('/login',async(req,res)=>{
     const {email,password}=req.body;

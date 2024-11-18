@@ -18,7 +18,18 @@ const roomSchema=mongoose.Schema({
         required:true
     },
     imageurls:[],
-    currentbooking:[],
+    currentbooking:[
+        {
+            bookingid: { type: mongoose.Schema.Types.ObjectId, ref: "Booking" },
+            fromdate: { type: String, required: true },
+            todate: { type: String, required: true },
+            userid: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+            status: { type: String, required: true },
+          }
+            
+            
+           
+    ],
     type:{
         type:String,
         required:true

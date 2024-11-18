@@ -9,39 +9,70 @@ function HomeScreen() {
     const [rooms, setRooms] = useState([]); // State to store rooms data
     const [todate, setTodate] = useState(); 
     const [fromdate, setFromdate] = useState(); 
+    const [duplicateroom, setDuplicateroom] = useState([]); 
     const [error, setError] = useState(); // State to handle errors
-    const [loading, setLoading] = useState(); // State to handle errors
-    // const baseURL= `${process.env.REACT_APP_BASE_URL}:${process.env.REACT_APP_PORT}`;
+    const [loading, setLoading] = useState(); 
     
 
     useEffect(() => {
         const fetchRooms = async () => {
             try {setLoading(true)
                 const response = await axios.get('http://localhost:5000/api/rooms/getallrooms'); // Ensure the correct endpoint
-                setRooms(response.data); // Assuming the data structure has  
+                setRooms(response.data);
+                
 
-                // console.log(rooms)
-                //  console.log(rooms.length)
-                // console.log("data",response.data); 
+                
+                
                 setLoading(false)
                 
             } catch (error) {
                 setError(true)
-                // console.error(error); // Log the error
+                
                 setError(error.message); // Set error state
                 setLoading(false)
             }
           };
 
-                fetchRooms(); // Call the fetch function
+                fetchRooms();
+                
     }, []);
-    function filterbyDates(dates){
+    function filterbyDates(dates)
+{
       console.log(dates)
  console.log(dates[0].format("DD-MM-YYYY"));
  console.log(dates[1].format("DD-MM-YYYY"));
  setFromdate(dates[0].format("DD-MM-YYYY"));
  setTodate(dates[1].format("DD-MM-YYYY"));
+ var temproom=[];
+ var availability=false;
+ for(const room of duplicateroom)
+  {
+  if(room.currentbooking.length>0)
+    {
+    for( const booking of room.currentbooking)
+    {
+      if(!(dates[0].format("DD-MM-YYYY")).isBetween(booking.fromdate,booking.todate)&&
+      !(dates[1].format("DD-MM-YYYY")).isBetween(booking.fromdate,booking.todate) )
+      {
+        if(
+          (dates[0].format("DD-MM-YYYY"))!==booking.fromdate&&
+          (dates[0].format("DD-MM-YYYY"))!==booking.todate&&
+          (dates[1].format("DD-MM-YYYY"))!==booking.fromdate&&
+          (dates[1].format("DD-MM-YYYY"))!==booking.todate
+        )
+        {
+          availability=true;
+        }
+      }
     }
+    }
+    if(availability==true||room.currentbooking.length==0)
+    {
+      temproom.push(room)
+    }
+    setRooms(temproom)
+}
+}
 
     return (
         <div className='container1 col'>
@@ -51,37 +82,13 @@ function HomeScreen() {
             </div>
           </div>
 
-            <div className='row justify-content-center mt-1.5 '>
-
-
-
-                                                
+            <div className='row justify-content-center mt-1.5 '>                                               
                  {loading?
                 (<h1>loading</h1>):(rooms.map((room)=>{
                     return <div className='row col-md-9 ' key={room.id} >
                         <Room  room={room} todate={todate} fromdate={fromdate}/>
                         
-                    </div>  }))}
-                
-
-{/* 
-                {loading ? (
-  <h1>Loading...</h1>
-) : error ? (
-  <h1>Error: {error}</h1>
-) : rooms.length === 0 ? (
-    <h1>No rooms available</h1>
-  ) : (
-  rooms.map((room) => (
-    <div className="col-md-9 mt-2" key={room._id}>
-      <h1>hhhhhhh {room.name}</h1>
-    </div>
-  ))
-)}  */}
-
-
-
-                
+                    </div>  }))}               
      </div>
       </div>
         )
