@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
+import StripeCheckout from 'react-stripe-checkout';
 
 function BookScreen() {
   const { roomid ,fromdate,todate} = useParams(); // Retrieve roomid from URL parameters
@@ -13,10 +14,6 @@ function BookScreen() {
   const fromDateParsed = moment(fromdate, "DD-MM-YYYY");
   const toDateParsed = moment(todate, "DD-MM-YYYY");
  
-  ;
-  
-  
-
   // Calculate the difference in days
   const totaldays = toDateParsed.diff(fromDateParsed, 'days')+1;
 
@@ -43,36 +40,65 @@ function BookScreen() {
   }, [roomid]); 
   
 
-  async function bookRoom(){
+  // async function bookRoom(){
     
-    const bookingdetails = {
-      roomname: room.name,
-      roomid: room._id,
-      userid: JSON.parse(localStorage.getItem("currentUser"))?.userid,
-      username: JSON.parse(localStorage.getItem("currentUser"))?.name,
-      fromdate,
-      todate,
-      totalamount,
-      totaldays
+  //   const bookingdetails = {
+  //     roomname: room.name,
+  //     roomid: room._id,
+  //     userid: JSON.parse(localStorage.getItem("currentUser"))?.userid,
+  //     username: JSON.parse(localStorage.getItem("currentUser"))?.name,
+  //     fromdate,
+  //     todate,
+  //     totalamount,
+  //     totaldays
       
-    };
+  //   };
   
-    console.log('Booking Details:', bookingdetails);
+  //   console.log('Booking Details:', bookingdetails);
     
 
-    try {
-      const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      console.log("Booking successful:", result.data);
-    } catch (error) {
-      console.error("Booking failed:", error.response?.data || error.message, error);
+  //   try {
+  //     const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     });
+  //     console.log("Booking successful:", result.data);
+  //   } catch (error) {
+  //     console.error("Booking failed:", error.response?.data || error.message, error);
      
-    }
-  }
+  //   }
+  // }
+ async function onToken(token){
+  console.log(token);
+  const bookingdetails = {
+    roomname: room.name,
+    roomid: room._id,
+    userid: JSON.parse(localStorage.getItem("currentUser"))?.userid,
+    username: JSON.parse(localStorage.getItem("currentUser"))?.name,
+    fromdate,
+    todate,
+    totalamount,
+    totaldays,
+    token
+    
+  };
 
+  console.log('Booking Details:', bookingdetails);
+  
+
+  try {
+    const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log("Booking successful:", result.data);
+  } catch (error) {
+    console.error("Booking failed:", error.response?.data || error.message, error);
+   
+  }
+}
  
   return (
             <div className='container   paynow '>
@@ -103,7 +129,11 @@ function BookScreen() {
                                     <p>Total Amount  :  €{totalamount} </p>
                                 </div>
                                 <div>
-                                    <button className='btn btn-primary' onClick={bookRoom}>Pay Now</button>
+                                    <button className='btn btn-primary'> Pay Now{""}</button>
+                                    <StripeCheckout 
+                                       token={onToken}
+                                       stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH"
+      />                           
                                 </div>
                             </div>
                         </div>

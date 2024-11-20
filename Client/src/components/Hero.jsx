@@ -3,6 +3,10 @@ import './Hero.css'
 import video from '../assets/hotelimg.mp4'
 
 function Hero() {
+  const user=JSON.parse(localStorage.getItem('currentUser'))
+  if(user){
+    window.location.href='/home' 
+  }
   return (
     <div className="hero-section ">
         

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Hero.css'
+// import './Hero.css'
 
 
 
@@ -13,7 +13,7 @@ function logout()
  return (
         <div className='header'>
             <nav className="navbar navbar-expand-lg  ">
-            <a className="navbar-brand"  href="#">Hotel Paradise</a>
+            <a className="navbar-brand nav"  href="#">Hotel Paradise</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon mr-4">
                                   
@@ -34,10 +34,10 @@ function logout()
           </div></>:
           <>
                     <li className="nav-item active mr-4">
-                        <a className="nav-link"  href="/register">Register </a>
+                        <a className="nav-link nav"  href="/register">Register </a>
                     </li>
                     <li className="nav-item mr-5">
-                        <a className="nav-link" href="/login">Login</a>
+                        <a className="nav-link nav" href="/login">Login</a>
                     </li>
                     </>
 }

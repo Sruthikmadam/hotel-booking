@@ -28,23 +28,23 @@ header {
     z-index: 1000;
 }
 
-.navbar {
-    position: fixed; /* Change to fixed */
+/* .navbar {
+    position: fixed; /* Change to fixed 
     top: 0; 
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent 
     color: white;
     width: 100%;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000; /* Ensure it stays above other content 
     transition: background-color 0.3s;
 }
 
 .navbar:hover {
-    background-color: rgba(63, 59, 59, 0.8); /* Darker on hover */
+    background-color: rgba(63, 59, 59, 0.8); /* Darker on hover 
 }
 
 .logo {
@@ -74,6 +74,9 @@ header {
 .nav-links a:hover {
     color: #f39c12;
 }
+.nav:hover{
+    color:red;
+} */
 
 /* Hero Section */
 .hero-section {
