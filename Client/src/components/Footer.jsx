@@ -3,12 +3,18 @@ import React from 'react';
 import './Footer.css';
 
  function Footer() {
+  const user=JSON.parse(localStorage.getItem('currentUser'))
+function logout()
+{
+    localStorage.removeItem('currentUser');
+    window.location.href='/' 
+}
  return (
 
 
 
 <footer className="bg-dark text-white mt-5">
-  <div className="container py-4"style={{textAlign:"center"}}>
+  <div className=" footer py-4"style={{textAlign:"center"}}>
     <div className="row">
       
       
@@ -24,15 +30,22 @@ import './Footer.css';
       
       <div className="col-md-4 mb-3">
         <h5 style={{textDecoration: "underline"}}>Quick Links</h5>
-        <ul className="list-unstyled"  style={{ lineHeight: "30px"}}>
+       { user?<><ul className="list-unstyled"  style={{ lineHeight: "30px"}}>
+          
           <li><a href="/home" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-white text-decoration-none">About</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="" onClick={logout}class="text-white text-decoration-none">logout</a></li>
+          <li><a href="/profile" class="text-white text-decoration-none">bookings</a></li>
           <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-        </ul>
+        </ul></>:<><ul className="list-unstyled"  style={{ lineHeight: "30px"}}>
+          
+          <li><a href="/home" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="/login" class="text-white text-decoration-none">Login</a></li>
+          <li><a href="/register" class="text-white text-decoration-none">Register</a></li>
+          <li><a href="/" class="text-white text-decoration-none">Hero</a></li>
+        </ul></>}
       </div>
       
-      <div class="col-md-4 mb-3 ">
+      <div class="col-md-4 mb-3" id="contact-details">
         <h5 style={{textDecoration: "underline"}}>Contact Us</h5>
         <p><i class="fa fa-map-marker"></i> 1234 Hotel Street, City, Country</p>
         <p><i class="fa fa-phone"></i> +123 456 7890</p>

@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 
  #root{
   padding: 0;
@@ -219,3 +222,46 @@ height: 300px;
   margin-left: 200px;
 
 }
+
+@media (max-width:810px) {
+  .payrow{
+    line-height: 2px;
+    /* max-height: 500px; */
+    /* max-height: 500px;  */
+        width: 100%;
+        margin: 50px;
+
+  }
+  .bigimg{
+    max-width:500px;
+    height:200px
+  }
+  .smallimg{
+    max-width:150px;
+    height:150px
+  }
+  .bookdetails{
+    line-height: 8px;
+    font-size: small;
+    text-align: center;
+  }
+  .photo{
+    text-align: center;
+  }
+  /* footer{
+    text-align: center;
+    font-size: small;
+    line-height: 5px;
+   
+  }
+  .footer{
+    margin-left: 0px;
+  } */
+   .bookdetails h1{
+    font-size: small;
+    padding-bottom: 0px;
+   }
+}
+    @media (max-width:810px) {
+
+    }

@@ -25,11 +25,11 @@ const roomSchema=mongoose.Schema({
             todate: { type: String, required: true },
             userid: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
             status: { type: String, required: true },
-          }
-            
+          }],
+    // currentbooking: { type: Array, default: [] },
             
            
-    ],
+    
     type:{
         type:String,
         required:true

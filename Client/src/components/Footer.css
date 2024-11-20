@@ -1,12 +1,14 @@
 /* Footer.css */
 .footer {
   position: static;
+  bottom:0;
     background-color: #333;
     color: #f5f5f5;
     padding: 20px 0;
     text-align: center;
+    width:100%;
   
-    bottom:0;
+    bottom-right:0;
   }
  
   

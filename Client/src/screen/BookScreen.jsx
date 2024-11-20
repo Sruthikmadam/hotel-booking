@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
+
 import StripeCheckout from 'react-stripe-checkout';
 
 function BookScreen() {
@@ -87,17 +88,30 @@ function BookScreen() {
   console.log('Booking Details:', bookingdetails);
   
 
-  try {
-    const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    console.log("Booking successful:", result.data);
-  } catch (error) {
-    console.error("Booking failed:", error.response?.data || error.message, error);
+  // try {
+  //   const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+  //   console.log("Booking successful:", result.data);
+  // } catch (error) {
+  //   console.error("Booking failed:", error.response?.data || error.message, error);
    
-  }
+  // }
+  try {
+    const result = await axios.post(
+        "http://localhost:5000/api/bookings/bookroom",
+        bookingdetails,
+        { headers: { "Content-Type": "application/json" } }
+    );
+    console.log("Booking successful:", result.data);
+    window.location.href = '/profile';
+
+} catch (error) {
+    console.error("Booking failed:", error.response?.data || error.message, error);
+    alert("Payment failed! Please try again.");
+}
 }
  
   return (
@@ -106,7 +120,7 @@ function BookScreen() {
                    
                     {room && (
                         <div className='row flex-d ' >
-                            <div className='col-md-7'>
+                            <div className='col-md-7 photo'>
                                <h3 className='roomname'><b> {room.name}</b> </h3>
                                 <img src={room.imageurls[0]} alt="Room" className='bigimg'  />
                             </div>
@@ -129,12 +143,32 @@ function BookScreen() {
                                     <p>Total Amount  :  €{totalamount} </p>
                                 </div>
                                 <div>
-                                    <button className='btn btn-primary'> Pay Now{""}</button>
-                                    <StripeCheckout 
+                                    
+                                    {/* <StripeCheckout 
                                        token={onToken}
-                                       stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH"
-      />                           
+                                       stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH">
+                               <button className='btn btn-primary'> Pay Now{""} </button>
+                                 </StripeCheckout> */}
+                                                      <StripeCheckout
+        token={onToken}
+        stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH"
+        amount={totalamount*100} // Amount in cents (e.g., $50.00)
+        currency="EUR" // Set the currency
+        name={room.name}
+       
+      >
+         <button className='btn btn-primary'>pay now</button>
+      </StripeCheckout>
+
+
                                 </div>
+                                <div>
+      
+        
+       
+       
+       
+    </div>
                             </div>
                         </div>
                     )}

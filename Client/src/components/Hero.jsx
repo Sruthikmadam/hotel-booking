@@ -19,10 +19,10 @@ function Hero() {
             src={video} autoPlay muted loop
         /></div>
        <div className="hero-content">
-       <button >
-       <h1>Explore Us</h1> 
+       
+       <a href='/home'>Explore Us</a> 
            
-        </button></div>
+       </div>
     </div>
   )
 }
