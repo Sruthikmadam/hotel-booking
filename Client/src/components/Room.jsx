@@ -4,6 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
+import Roomrate from '../components/Roomrate'
+// import Review from '../components/Review'
 
 
 function Room({room,fromdate,todate}) {
@@ -18,7 +20,10 @@ function Room({room,fromdate,todate}) {
             <img src={room.imageurls[0]} className='smallimg'/>
         </div>
         <div className='box2'>
-             <h1>{room.name}</h1>
+             <h1>{room.name}   
+               <Roomrate roomId={room._id} />  
+               {/* <Review roomId={room._id}  /> */}
+              </h1>
             <b><p>Max Count:{room.maxcount}</p>
             <p>phone Number:{room.phonenumber}</p>
             <p>type:{room.type}</p>

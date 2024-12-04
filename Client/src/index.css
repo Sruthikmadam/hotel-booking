@@ -102,6 +102,7 @@ h1{
   border: 5px !important;
   padding: 20px !important;
   border-radius: 30px;
+  text-decoration: none;
 }
 
 
@@ -221,6 +222,29 @@ height: 300px;
   margin-top:150px ;
   margin-left: 200px;
 
+}
+input, select {
+  box-shadow: none;
+  margin-top: 10px;
+  border: 2px solid black; 
+  width: 100%;
+
+}
+.ant-picker {
+  border:none
+}
+.profile{
+  padding-top: 80px;
+}
+.ratingScreen{
+  padding-top: 150px;
+}
+.link{
+  text-decoration: none;
+  
+}
+.ulclass  {
+  list-style-type: none
 }
 
 @media (max-width:810px) {

@@ -164,6 +164,9 @@ function HomeScreen() {
   const [duplicateroom, setDuplicateRoom] = useState([]); // Original data
   const [error, setError] = useState(); // State to handle errors
   const [loading, setLoading] = useState(); 
+  const [searchkey, setSearchkey] = useState(""); 
+  const [type, setType] = useState('all'); 
+
 
   // Fetching rooms data
   useEffect(() => {
@@ -221,13 +224,40 @@ function HomeScreen() {
 
     setRooms(temproom); // Update filtered rooms
   }
+  function filterBySearch(){
+    const temproom=duplicateroom.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
+    setRooms(temproom)
+  }
+  function filterByType(e){
+    setType(e)
+    if(e!=="all"){
+    const temproom=duplicateroom.filter(room=>room.type.toLowerCase()==e.toLowerCase())
+    setRooms(temproom)
+  }
+else{
+  setRooms(duplicateroom)
+}}
 
   return (
     <div className="container1 col">
       {/* Date picker */}
-      <div className="row1">
-        <div className="col-md-3">
-          <RangePicker format="DD/MM/YYYY" onChange={filterbyDates} />
+      <div className="row1 bs d-flex">
+        <div className="col-md-3 form-control">
+       
+           <RangePicker format="DD/MM/YYYY" onChange={filterbyDates} />
+        </div>
+
+        <div className="col-md-5">
+          <input type="text" className="form-control" placeholder="search rooms"
+          value={searchkey} onChange={(e)=>
+          {setSearchkey(e.target.value)}} onKeyUp={filterBySearch}/>
+        </div>
+        <div className="col-md-3 ">
+        <select className="form-control" value={type} onChange={(e)=>{filterByType(e.target.value)}}>
+          <option value="all">all</option>
+          <option value="delux">delux</option>
+          <option value="non-delux">non-delux</option>
+        </select>
         </div>
       </div>
 

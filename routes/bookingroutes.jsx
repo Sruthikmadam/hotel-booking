@@ -82,7 +82,18 @@ console.log(token)
       console.error("Booking error:", error.message || error, error.stack);
       res.status(400).json({ error: error.message || "Something went wrong!" });
   }
+ 
   
+
+  router.post("/getBookingByUserId",async (req,res)=>{
+const userid=req.body.userid
+try {
+  const bookings= await Booking.find({userid:userid})
+  res.send(bookings)
+} catch (error) {
+  return res.status(400).json({error})
+}
+  })
 
 });
 module.exports=router

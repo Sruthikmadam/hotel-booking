@@ -26,7 +26,7 @@ function Navbar() {
                                 <i class="fa-solid fa-user-tie" style={{ marginRight: '10px' }}></i> {user.name}
                             </button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item " style={{ color: 'black' }} href="/profile">bookings</a>
+                                <a className="dropdown-item " style={{ color: 'black' }} href="/profile">Profile</a>
                                 <a className="dropdown-item " style={{ color: 'black' }} href="/home">Home</a>
                                 <a className="dropdown-item" style={{ color: 'black' }} href="#" onClick={logout}>Log Out</a>
 
