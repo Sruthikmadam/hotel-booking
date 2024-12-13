@@ -14,7 +14,7 @@ A hotel room booking application built with React. This app allows users to sear
 - **Axios**: For making API requests.
 - **Node.js/Express**: For the backend server.
 - **MongoDB**: For storing room data, user information, and reviews.
-  **Stripe**: For payment process
+-  **Stripe**: For payment process
 - **Bootstrap**: For styling the app.
 
 
