@@ -26,4 +26,4 @@ A hotel room booking application built with React. This app allows users to sear
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Sruthikmadam/hotel-booking
+git clone https://github.com/Sruthikmadam/hotel-booking.git
