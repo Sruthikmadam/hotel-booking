@@ -7,13 +7,13 @@ const router = express.Router();
 
 router.post('/rate-room', async (req, res) => {
   try {
-    const { roomId, userId, rating, review } = req.body;
-    console.log(roomId, userId);
+    const { roomId, name, rating, review } = req.body;
+    //  console.log(roomId, userId);
 
     // Create a new room rating
     const newRating = new RoomRating({
       roomId,
-      userId,
+      name,
       rating,
       review,
     });

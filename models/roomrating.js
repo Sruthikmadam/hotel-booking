@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
 
-// Define the RoomRating schema
+//  RoomRating schema
 const roomRatingSchema = new mongoose.Schema({
   roomId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Room', // Assuming you have a 'Room' collection
+    ref: 'Room', 
     required: true
   },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Assuming you have a 'User' collection
+  name: {
+    type: String,
+    ref: 'User',
     required: true
   },
   rating: {
     type: Number,
     min: 1,
-    max: 5,  // Rating between 1 and 5 stars
+    max: 5,  
     required: true
   },
   review: {

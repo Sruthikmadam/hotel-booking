@@ -59,6 +59,52 @@
     "currentbooking": [],
     "type": "Non-delux",
     "description": "Compact room for solo travelers, includes a comfortable bed and work desk."
+  },
+  {
+    "name": "Palace - Family Room with king bed",
+    "maxcount": 3,
+    "phonenumber": 1029384756,
+    "rentperday": 150,
+    "imageurls": [
+      "https://images.trvl-media.com/lodging/4000000/3950000/3946100/3946034/23710a8c.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium",
+      "https://tse1.mm.bing.net/th?id=OIP.AMUuUDLvquy7yTumeYHrWwHaFc&pid=Api&P=0&h=180",
+      "https://tse2.mm.bing.net/th?id=OIP.HTFVSjW0AzqZkaF5O3XpcgHaEJ&pid=Api&P=0&h=180"
+    ],
+    "currentbooking": [
+     
+    ],
+    "type": "delux",
+    "description": "Spacious room ideal for families, with two queen-size beds and a cozy living area."
+  },
+  {
+    "name": "Family Room with queen bed",
+    "maxcount": 5,
+    "phonenumber": 1029384756,
+    "rentperday": 200,
+    "imageurls": [
+      "https://images.trvl-media.com/lodging/4000000/3950000/3946100/3946034/23710a8c.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium",
+      "https://tse1.mm.bing.net/th?id=OIP.AMUuUDLvquy7yTumeYHrWwHaFc&pid=Api&P=0&h=180",
+      "https://tse2.mm.bing.net/th?id=OIP.HTFVSjW0AzqZkaF5O3XpcgHaEJ&pid=Api&P=0&h=180"
+    ],
+    "currentbooking": [
+     
+    ],
+    "type": "delux",
+    "description": "Spacious room ideal for families, with two queen-size beds and a cozy living area."
+  },
+  {
+    "name": "Single Room double bed ",
+    "maxcount": 2,
+    "phonenumber": 1122334455,
+    "rentperday": 50,
+    "imageurls": [
+      "https://3.imimg.com/data3/TP/SK/MY-12478236/non-ac-delux-room-1000x1000.jpg",
+      "https://www.vajraheritage.com/images/single_max.jpg",
+      "https://www.brgbudgetstay.com/storage/rooms/deluxe-non-ac-double-sharing-room/2.PNG"
+    ],
+    "currentbooking": [],
+    "type": "Non-delux",
+    "description": "Compact room for solo travelers, includes a comfortable bed and work desk."
   }
  
 ]

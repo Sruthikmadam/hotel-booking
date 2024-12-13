@@ -142,6 +142,8 @@ import React, { useEffect, useState } from 'react';
 import regimg from '../assets/regimg.webp';
 import { Tabs } from 'antd';
 import axios from 'axios';
+import Swal from "sweetalert2"
+import { Tag } from 'antd';
 
 function ProfileScreen() {
     const user = JSON.parse(localStorage.getItem('currentUser'));
@@ -201,6 +203,19 @@ export function MyBooking() {
 
         fetchBookings();
     }, [userid]);
+    async function cancelBooking(bookingid,roomid){
+    try {
+      const result= await axios.post ("http://localhost:5000/api/bookings/cancelBooking",{bookingid,roomid}).data
+    console.log(result)
+    Swal.fire("congrates,booking cancelled succesfully").then(result=>
+        window.location.reload()
+    )
+    } catch (error) {
+        console.log(error)
+        Swal.fire("OOps","sothing went wrong","error")
+        
+    }
+    }
 
     return (
         <div className="row mybook">
@@ -220,11 +235,13 @@ export function MyBooking() {
                                 <b>Amount:</b> {booking.totalamount}
                             </p>
                             <p>
-                                <b>Status:</b> {booking.status === 'booked' ? 'Confirmed' : 'Cancelled'}
+                                {/* <b>Status:</b> {booking.status === 'booked' ? 'Confirmed' : 'Cancelled'} */}
+                                {booking.status=="cancelled"?<Tag color="red">Cancelled</Tag>:<Tag color="green">Confirmed</Tag>}
                             </p>
+                            {booking.status!=="cancelled"&&
                             <div className="text-right">
-                                <button className="btn btn-primary">Cancel Booking</button>
-                            </div>
+                                <button className="btn btn-primary" onClick={()=>{cancelBooking(booking._id,booking.roomid)}}>Cancel Booking</button>
+                            </div>}
                         </div>
                     ))
                 ) : (

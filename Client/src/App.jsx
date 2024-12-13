@@ -10,6 +10,7 @@ import LoginScreen from './screen/LoginScreen'
 import RegisterScreen from './screen/RegisterScreen'
 import BookScreen from './screen/BookScreen';
 import ProfileScreen from './screen/ProfileScreen';
+import AdminScreen from './screen/AdminScreen';
 
 // import ReviewScreen from './screen/ReviewScreen'
 // import Roomrate from './components/Roomrate';
@@ -34,9 +35,10 @@ function App() {
         <Route path='/login' element={<LoginScreen />} /> 
         <Route path='/register' element={<RegisterScreen />} /> 
         {/* <Route path='/review' element={<Roomrate />} />  */}
-        <Route path='/roomrate/:roomId/:userId' element={<RoomratingScreen />} /> 
+        <Route path='/roomrate/:roomId/:name' element={<RoomratingScreen />} /> 
         {/* <Route path='/reviews/:roomId/:userId' element={<ReviewScreen />} />  */}
         <Route path='/book/:roomid/:fromdate/:todate' element={<BookScreen />} /> 
+        <Route path='/admin' element={<AdminScreen />} /> 
 
       </Routes>
     </BrowserRouter>

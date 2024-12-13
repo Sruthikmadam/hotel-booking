@@ -190,6 +190,7 @@ function HomeScreen() {
   function filterbyDates(dates) {
     const formattedFromDate = dates[0].format("DD-MM-YYYY");
     const formattedToDate = dates[1].format("DD-MM-YYYY");
+    if(formattedFromDate)
 
     setFromdate(formattedFromDate);
     setTodate(formattedToDate);

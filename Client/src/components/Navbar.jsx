@@ -34,7 +34,7 @@ function Navbar() {
                         </div>
                         </> :
                             <>         <li className="nav-item mr-5">
-                                <a className="nav-link nav" href="/Home">Home</a>
+                                <a className="nav-link nav" href="/home">Home</a>
                             </li>
                                 <li className="nav-item mr-5">
                                     <a className="nav-link nav" href="#contact-details">Contact</a>

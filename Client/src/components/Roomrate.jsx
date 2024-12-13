@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 const Roomrate = ({ roomId }) => {
   const [averageRating, setAverageRating] = useState(null);
   const user = JSON.parse(localStorage.getItem('currentUser'))
-  const userId=user.userid
-  console.log("room",roomId)
-  console.log("user",userId)
+  // const userId=user.userid
+  // console.log("room",roomId)
+  // console.log("user",userId)
 
   useEffect(() => {
     const fetchAverageRating = async () => {
@@ -25,16 +25,59 @@ const Roomrate = ({ roomId }) => {
     fetchAverageRating();
   }, [roomId]);
 
+  // return (
+  //   <div>
+  //     {/* <h2>Room Details</h2> */}
+  //     <div>
+  //       { averageRating !== null? (
+
+  //         <div>
+  //           {/* <h4> {averageRating.toFixed(1)} / 5</h4> */}
+
+  //           <Link  to={`/roomrate/${roomId}/${user.userid}`}>
+  //           {/* <Link  to={`/reviews/${roomId}/${userId}`}> */}
+  //           <div  className='link'>
+  //             {[1, 2, 3, 4, 5].map((star) => (
+               
+  //               <span
+  //                 key={star}
+  //                 style={{
+  //                   color: star <= averageRating ? 'gold' : 'gray',
+  //                   fontSize: '24px',
+  //                 }}
+  //               >
+  //                 &#9733;
+  //               </span>
+  //             ))}
+  //           </div></Link> 
+  //         </div>
+  //       ) :(
+        
+  //        <Link to={`/login}`}>
+           
+  //        </Link> 
+  //       )}
+  //     </div>
+  //     {/* {room.name} */}
+      
+      
+  //     {/* <RoomratingScreen roomId={roomId} userId={userid} /> */}
+  //   </div>
+  // );
+
+
+
   return (
     <div>
       {/* <h2>Room Details</h2> */}
       <div>
-        {averageRating !== null ? (
-          <div>
-            {/* <h4> {averageRating.toFixed(1)} / 5</h4> */}
+        { averageRating !== null&& user? (
 
-            <Link  to={`/roomrate/${roomId}/${userId}`}>
-            {/* <Link  to={`/reviews/${roomId}/${userId}`}> */}
+          <div>
+          
+
+            <Link  to={`/roomrate/${roomId}/${user.name}`}>
+           
             <div  className='link'>
               {[1, 2, 3, 4, 5].map((star) => (
                
@@ -51,14 +94,26 @@ const Roomrate = ({ roomId }) => {
             </div></Link> 
           </div>
         ) :(
-        
-         <Link to={`/roomrate/${roomId}/${userId}`}></Link> 
+        <div>
+          <Link  to='/login'>
+           
+           <div  className='link'>
+             {[1, 2, 3, 4, 5].map((star) => (
+              
+               <span
+                 key={star}
+                 style={{
+                   color: star <= averageRating ? 'gold' : 'gray',
+                   fontSize: '24px',
+                 }}
+               >
+                 &#9733;
+               </span>
+             ))}
+           </div></Link> 
+        </div>
         )}
-      </div>
-      {/* {room.name} */}
-      
-      
-      {/* <RoomratingScreen roomId={roomId} userId={userid} /> */}
+      </div>     
     </div>
   );
 };

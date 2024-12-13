@@ -13,16 +13,18 @@ function Hero() {
         <section className="hero">
             <h1>Welcome to Your <span style={{color:'red'}}>Paradise</span></h1>
             <p>Your journey starts here.</p>
+          
+            
          </section>
          <div  className="background-video" >
         <video
             src={video} autoPlay muted loop
-        /></div>
-       <div className="hero-content">
-       
-       <a href='/home'>Explore Us</a> 
+        />
+        
+        </div>
+     
            
-       </div>
+      
     </div>
   )
 }

@@ -238,6 +238,12 @@ input, select {
 }
 .ratingScreen{
   padding-top: 150px;
+
+}
+.adminscreen{
+  padding: 69px;
+ 
+  
 }
 .link{
   text-decoration: none;
@@ -245,6 +251,12 @@ input, select {
 }
 .ulclass  {
   list-style-type: none
+}
+.herocontent{
+  color:black
+}
+.herobutton{
+  color:red
 }
 
 @media (max-width:810px) {

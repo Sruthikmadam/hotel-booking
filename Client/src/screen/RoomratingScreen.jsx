@@ -88,7 +88,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const RoomratingScreen = () => {
-  const { roomId ,userId} = useParams();
+  const { roomId ,name} = useParams();
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -138,7 +138,7 @@ const RoomratingScreen = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/reviews/rate-room', {
         roomId,
-        userId,
+        name,
         rating,
         review,
       });
@@ -186,8 +186,9 @@ const RoomratingScreen = () => {
       <ul className='ulclass '  >
         {reviews.map((review) => (
           <li key={review._id} className='liclass bs'>
-            <h4>{review.userId}</h4> 
-            <h4>{review.rating}</h4> 
+            <h4>{review.name} <span>{review.rating}     &#9733;</span>
+          </h4> 
+            
             <p>{review.review}</p> 
             {/* <small>{new Date(review.date).toLocaleString()}</small> */}
           </li>
