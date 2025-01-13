@@ -1,4 +1,5 @@
 import React from 'react'
+import './Room.css'
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';

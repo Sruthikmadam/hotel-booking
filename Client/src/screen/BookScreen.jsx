@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
+// import './BookScreen.css'
 
 import StripeCheckout from 'react-stripe-checkout';
 

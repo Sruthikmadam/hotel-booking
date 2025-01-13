@@ -107,7 +107,7 @@ header {
 
 .hero{
     position:absolute;
-    bottom:150px;
+    bottom:25px;
      z-index: 3; 
     
 }
@@ -132,4 +132,15 @@ header {
     background-color:white;
     
 }
+.clicking {
+        cursor: 'pointer';
+        padding: '10px 20px';
+        background: '#007bff';
+        color: '#fff';
 
+         display: 'inline-block';
+        text-align: 'center';
+        font-size: '16px';
+       
+  }
+  

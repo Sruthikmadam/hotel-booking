@@ -140,7 +140,7 @@ const RoomratingScreen = () => {
         roomId,
         name,
         rating,
-        review,
+        review
       });
       alert('Rating submitted successfully');
     } catch (error) {

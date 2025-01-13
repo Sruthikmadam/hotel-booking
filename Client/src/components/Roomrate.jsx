@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'; 
 // import RoomratingScreen from '../screen/RoomratingScreen';
 import { Link } from 'react-router-dom';
+import './Roomrate.css'
 
 
 const Roomrate = ({ roomId }) => {

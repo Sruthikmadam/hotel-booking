@@ -36,4 +36,42 @@ router.post('/getroom', async (req, res) => {
   }
 });
 
+router.post("/addroom",async (req,res)=>{
+  try {
+    const newroom=new Room(req.body)
+    await newroom.save()
+    res.send("new room added successfully")
+  } catch (error) {
+    return res.status(400).json({error})
+  }
+} )
+
+
+// router.get('/available', async (req, res) => {
+//   const { formattedFromDate,
+//     formattedToDate  } = req.body;
+
+//   try {
+//     // Fetch bookings that overlap with the given range
+//     const bookedRooms = await Booking.find({
+//       $or: [
+//         {
+//           formattedFromDate: { $lte: formattedToDate },
+//           formattedToDate: { $gte:  formattedFromDate },
+//         },
+//       ],
+//     }).select('roomId'); // Get only room IDs
+
+//     const bookedRoomIds = bookedRooms.map((booking) => booking.roomId);
+
+//     // Find rooms not in the list of booked room IDs
+//     const availableRooms = await Room.find({ _id: { $nin: bookedRoomIds } });
+
+//     res.status(200).json(availableRooms);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error fetching rooms', error });
+//   }
+// });
+
+
 module.exports = router;

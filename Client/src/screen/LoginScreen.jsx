@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import regimg from '../assets/regimg.webp'
+import regimg from '../assets/hotel3.jpg'
 
 function LoginScreen() {
   const navigate = useNavigate(); // To navigate to a different screen after successful login

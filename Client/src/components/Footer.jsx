@@ -7,7 +7,7 @@ import './Footer.css';
 function logout()
 {
     localStorage.removeItem('currentUser');
-    window.location.href='/' 
+    window.location.href='/hero' 
 }
  return (
 
@@ -33,7 +33,8 @@ function logout()
        { user?<><ul className="list-unstyled"  style={{ lineHeight: "30px"}}>
           
           <li><a href="/home" class="text-white text-decoration-none">Home</a></li>
-          <li><a href="" onClick={logout}class="text-white text-decoration-none">logout</a></li>
+          <li><a href="/admin" class="text-white text-decoration-none">Admin Panel</a></li>
+          <li><a href="#" onClick={logout}class="text-white text-decoration-none">logout</a></li>
           <li><a href="/profile" class="text-white text-decoration-none">bookings</a></li>
           <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
         </ul></>:<><ul className="list-unstyled"  style={{ lineHeight: "30px"}}>

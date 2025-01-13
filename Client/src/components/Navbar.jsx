@@ -1,5 +1,5 @@
 import React from 'react'
-// import './Hero.css'
+ import './Navbar.css'
 
 
 
@@ -27,6 +27,7 @@ function Navbar() {
                             </button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a className="dropdown-item " style={{ color: 'black' }} href="/profile">Profile</a>
+                                <a className="dropdown-item " style={{ color: 'black' }} href="/admin">Admin Panel</a>
                                 <a className="dropdown-item " style={{ color: 'black' }} href="/home">Home</a>
                                 <a className="dropdown-item" style={{ color: 'black' }} href="#" onClick={logout}>Log Out</a>
 
@@ -45,6 +46,7 @@ function Navbar() {
                                 <li className="nav-item mr-5">
                                     <a className="nav-link nav" href="/login">Login</a>
                                 </li>
+                               
 
                             </>
                         }

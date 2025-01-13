@@ -12,7 +12,7 @@
 //     const [duplicateroom, setDuplicateRoom] = useState([]); 
 //     const [error, setError] = useState(); // State to handle errors
 //     const [loading, setLoading] = useState(); 
-    
+
 
 //     useEffect(() => {
 //         const fetchRooms = async () => {
@@ -20,22 +20,22 @@
 //                 const response = await axios.get('http://localhost:5000/api/rooms/getallrooms'); // Ensure the correct endpoint
 //                 setRooms(response.data);
 //                 setDuplicateRoom(response.data); 
-                
 
-                
-                
+
+
+
 //                 setLoading(false)
-                
+
 //             } catch (error) {
 //                 setError(true)
-                
+
 //                 setError(error.message); // Set error state
 //                 setLoading(false)
 //             }
 //           };
 
 //                 fetchRooms();
-                
+
 //     }, []);
 //     function filterbyDates(dates)
 // {
@@ -95,7 +95,7 @@
 // //   setTodate(formattedToDate);
 
 // //   const temproom = [];
-  
+
 // //   for (const room of duplicateroom) {
 // //     let availability = true;
 
@@ -139,13 +139,16 @@
 //                 (<h1>loading</h1>):(rooms.map((room)=>{
 //                     return <div className='row col-md-9 ' key={room.id} >
 //                         <Room  room={room} todate={todate} fromdate={fromdate}/>
-                        
+
 //                     </div>  }))}               
 //      </div>
 //       </div>
 //         )
 // }
 // export default HomeScreen
+
+
+
 
 
 import React, { useState, useEffect } from "react";
@@ -159,13 +162,17 @@ const { RangePicker } = DatePicker;
 
 function HomeScreen() {
   const [rooms, setRooms] = useState([]); // State to store filtered rooms
-  const [todate, setTodate] = useState(); 
-  const [fromdate, setFromdate] = useState(); 
+  const [todate, setTodate] = useState();
+  const [fromdate, setFromdate] = useState();
   const [duplicateroom, setDuplicateRoom] = useState([]); // Original data
+   const [filterroom, setFilterRoom] = useState([]); //
+   const [filtersearch, setFiltersearch] = useState([]); //
+   const [filtertype, setFiltertype] = useState([]); //
+  
   const [error, setError] = useState(); // State to handle errors
-  const [loading, setLoading] = useState(); 
-  const [searchkey, setSearchkey] = useState(""); 
-  const [type, setType] = useState('all'); 
+  const [loading, setLoading] = useState();
+  const [searchkey, setSearchkey] = useState("");
+  const [type, setType] = useState('all');
 
 
   // Fetching rooms data
@@ -174,8 +181,12 @@ function HomeScreen() {
       try {
         setLoading(true);
         const response = await axios.get("http://localhost:5000/api/rooms/getallrooms");
+
         setRooms(response.data); // Set rooms state
+        // console.log(rooms)
         setDuplicateRoom(response.data); // Copy to duplicateroom
+        // console.log(duplicateroom)
+
         setLoading(false);
       } catch (error) {
         setError(error.message); // Handle error
@@ -186,79 +197,126 @@ function HomeScreen() {
     fetchRooms();
   }, []);
 
+
+
   // Filter rooms based on date selection
-  function filterbyDates(dates) {
+
+  const filterbyDates = (dates) => {
+    console.log("Selected Dates:", dates);
+    if (!dates || dates.length < 2) return;
+
     const formattedFromDate = dates[0].format("DD-MM-YYYY");
     const formattedToDate = dates[1].format("DD-MM-YYYY");
-    if(formattedFromDate)
 
+    // Set state for selected dates
     setFromdate(formattedFromDate);
     setTodate(formattedToDate);
 
-    const temproom = [];
-    
-    for (const room of duplicateroom) {
-      let availability = true;
 
-      if (room.currentbooking.length > 0) {
+
+    const filteredRooms = duplicateroom.filter((room) => {
+      let isAvailable = true;
+
+      // Check if the room has current bookings
+      if (room.currentbooking?.length > 0) {
+        console.log("Current Booking:", room.currentbooking);
         for (const booking of room.currentbooking) {
           const bookingFromDate = moment(booking.fromdate, "DD-MM-YYYY");
           const bookingToDate = moment(booking.todate, "DD-MM-YYYY");
 
-          // Check if selected dates overlap with any booking
+          // Check for date overlap
           if (
-            dates[0].isBetween(bookingFromDate, bookingToDate, null, "[]") || // Start date overlaps
-            dates[1].isBetween(bookingFromDate, bookingToDate, null, "[]") || // End date overlaps
-            bookingFromDate.isBetween(dates[0], dates[1], null, "[]") ||      // Booking starts during the selected range
-            bookingToDate.isBetween(dates[0], dates[1], null, "[]")           // Booking ends during the selected range
+            moment(dates[0]).isBetween(bookingFromDate, bookingToDate, null, "[]") || // Start date overlaps
+            moment(dates[1]).isBetween(bookingFromDate, bookingToDate, null, "[]") || // End date overlaps
+            bookingFromDate.isBetween(moment(dates[0]), moment(dates[1]), null, "[]") ||      // Booking starts during the selected range
+            bookingToDate.isBetween(moment(dates[0]), moment(dates[0]), null, "[]")           // Booking ends during the selected range
           ) {
-            availability = false;
-            break; // No need to check further for this room
+            isAvailable = false;
+            break;
           }
         }
       }
 
-      if (availability) {
-        temproom.push(room); // Add room if available
-      }
+      return isAvailable;
+    });
+
+    // Update state with filtered rooms
+    console.log("Filtered Rooms:", filteredRooms);
+    setRooms(filteredRooms);
+    setFilterRoom(filteredRooms)
+  }
+
+
+
+
+
+const disablePastDates = (current) => {
+  return current && current < new Date().setHours(0, 0, 0, 0);
+};
+
+function filterBySearch() {
+  if(filterroom.length ){
+    if(filtertype.length){
+      console.log(filtertype)
+  const filterrooms=filtertype.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
+  setRooms(filterrooms)
+setFiltersearch(filterrooms)}
+else{ const filterrooms=filterroom.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
+  setRooms(filterrooms)
+  setFiltersearch(filterrooms)}
+}
+
+  else{
+  const duplicaterooms = duplicateroom.filter(room => room.name.toLowerCase().includes(searchkey.toLowerCase()))
+  setRooms(duplicaterooms)
+  }}
+
+
+function filterByType(e) {
+  setType(e)
+  if (e !== "all") {
+        if(filterroom.length){
+     
+        if(filtersearch.length){
+      const filterrooms=filtersearch.filter(room=>room.type.toLowerCase()==e.toLowerCase())
+      setRooms(filterrooms)
+      setFiltertype(filterrooms)
     }
+    else{
+      const filterrooms=filterroom.filter(room=>room.type.toLowerCase()==e.toLowerCase())
+      setRooms(filterrooms)
+      setFiltertype(filterrooms)
+    }}
+    else{
 
-    setRooms(temproom); // Update filtered rooms
+    const duplicaterooms = duplicateroom.filter(room => room.type.toLowerCase() == e.toLowerCase())
+    setRooms(duplicaterooms)
+    }}
+  
+  else {
+    setRooms(filterroom)
+    console.log(duplicateroom)
   }
-  function filterBySearch(){
-    const temproom=duplicateroom.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
-    setRooms(temproom)
-  }
-  function filterByType(e){
-    setType(e)
-    if(e!=="all"){
-    const temproom=duplicateroom.filter(room=>room.type.toLowerCase()==e.toLowerCase())
-    setRooms(temproom)
-  }
-else{
-  setRooms(duplicateroom)
-}}
-
+}
   return (
     <div className="container1 col">
       {/* Date picker */}
       <div className="row1 bs d-flex">
         <div className="col-md-3 form-control">
-       
-           <RangePicker format="DD/MM/YYYY" onChange={filterbyDates} />
+
+          <RangePicker format="DD/MM/YYYY" onChange={filterbyDates} disabledDate={disablePastDates} />
         </div>
 
         <div className="col-md-5">
           <input type="text" className="form-control" placeholder="search rooms"
-          value={searchkey} onChange={(e)=>
-          {setSearchkey(e.target.value)}} onKeyUp={filterBySearch}/>
+            value={searchkey} onChange={(e) => { setSearchkey(e.target.value) }} onKeyUp={filterBySearch} />
         </div>
         <div className="col-md-3 ">
-        <select className="form-control" value={type} onChange={(e)=>{filterByType(e.target.value)}}>
-          <option value="all">all</option>
-          <option value="delux">delux</option>
-          <option value="non-delux">non-delux</option>
-        </select>
+          <select className="form-control" value={type} onChange={(e) => { filterByType(e.target.value) }}>
+            <option value="all">all</option>
+            <option value="delux">delux</option>
+            <option value="non-delux">non-delux</option>
+          </select>
         </div>
       </div>
 
@@ -280,3 +338,7 @@ else{
 }
 
 export default HomeScreen;
+
+
+
+

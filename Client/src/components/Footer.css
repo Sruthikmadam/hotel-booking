@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
   }
   
@@ -56,4 +56,23 @@
   .footer p, .footer a {
     font-family: Arial, sans-serif;
   }
-  
+
+  /* footer{
+    text-align: center;
+    font-size: small;
+    line-height: 5px;
+   
+  }
+  .footer{
+    margin-left: 0px;
+  } */
+ 
+
+  @media (max-width:311px) {
+    footer{
+     
+      width: 100%;
+      flex-wrap: wrap;
+          
+    }
+  }

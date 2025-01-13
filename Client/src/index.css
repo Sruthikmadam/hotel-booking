@@ -7,33 +7,44 @@ html {
  }
 body{
   margin: 0;
-  background-color: rgb(113, 111, 111);
+  background-color: rgb(187, 182, 182);
+  overflow-x: hidden;
 
 }
-.navbar{
-  background-color: black;
+/* .navbar{
+  background-color: black;  
+} */
 
-  
-}
+/* .landingbtn{
+  cursor:pointer;
+} */
+/* .btn {
+  cursor: pointer;
+  background-color: #007bff; 
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+} */
 
 
-.navbar {
-  position: fixed; /* Change to fixed */
+/* .navbar {
+  position: fixed; 
   top: 0; 
   height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: rgba(0, 0, 0, 0.5); /* Transparent */
+  background-color: rgba(0, 0, 0, 0.5); 
   color: white;
   width: 100%;
-  z-index: 1000; /* Ensure it stays above other content */
+  z-index: 1000; 
   transition: background-color 0.3s;
 }
 
 .navbar:hover {
-  background-color: rgba(63, 59, 59, 0.8); /* Darker on hover */
+  background-color: rgba(63, 59, 59, 0.8); 
 }
 
 .logo {
@@ -75,19 +86,24 @@ body{
 }
 .navbar-nav{
   margin-left: auto;
-}
+} */
 .home{
   color:black
 }
 
+/* @media (max-width:500px) {
+.background-video{
+  width:100%
+}
+} */
 
 
 
-.smallimg{
+/* .smallimg{
   height: 200px;
   width: 100% !important;
   border-radius: 5px !important;
-}
+} */
 h1{
   font-size: 20px;
 }
@@ -109,7 +125,7 @@ h1{
 .boxes {
 margin-top: 0px;
 width:80%;
-height: 300px;
+height: 350px;
 
   display: flex;
   flex-direction: row;
@@ -117,23 +133,23 @@ height: 300px;
   justify-content: space-around;
 
   
-  border: 1px solid #ddd; /* Optional: adds a border around each box */
+  border: 1px solid #ddd; 
   border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
   margin-bottom: 20px;
-  background-color: #f9f9f9; /* Optional: light background for each box */
+  background-color: #f9f9f9; 
 }
 
 
 
-.smallimg {
+/* .smallimg {
   width: 100%; 
   
   
   height: 280px;
   border-radius: 8px; 
   
-}
+} */
 
 
 
@@ -144,7 +160,7 @@ height: 300px;
   padding-left: 20px;
 }
 
-/* Button styling */
+
 .button-container {
   margin-top: 10px;
   text-align: right;
@@ -153,13 +169,20 @@ height: 300px;
   margin-top:100px;
   padding-top: 20px;
 }
-.bigimg{
+
+
+
+/* .bigimg{
 
   border-radius: 10px !important;
   width: 100%;
     height: 350px;
-}
+} */
 
+
+
+
+/* registerScreen/login */
  .container{
   margin-bottom: 40px;
   margin-right: 100px;
@@ -168,11 +191,15 @@ height: 300px;
   border-radius: 10px;
   width: auto;
   height: auto;
-  line-height:1px;
-
-  
+  line-height:1px;  
 } 
-.container2{
+
+
+
+
+
+
+/* .container2{
   margin-bottom: 40px;
   margin-right: 100px;
   margin-right: 100px;
@@ -180,14 +207,16 @@ height: 300px;
   border-radius: 10px;
   width: auto;
   height: auto;
-}
+} */
+
+
+/* loginScreen */
 .registerlogin{
   margin-bottom: -100px;
 }
-.container1{
-  margin-top: -20px;
- 
-}
+
+
+
 .model{
   margin-top: 70px;
   height: 500px;
@@ -199,14 +228,14 @@ height: 300px;
 
  
 }
-.box2{
+/* .box2{
   width: 100%;
   margin-left: 30px;
 }
 .box1{
   width:120%;
-}
-.paynow{
+} */
+/* .paynow{
   height: 500px;
 }
 .bookdetails{
@@ -217,12 +246,43 @@ height: 300px;
   margin-left: 110px;
   margin-top: 120px;
   background-color: #f9f9f9;
-}
-.row1{
-  margin-top:150px ;
-  margin-left: 200px;
+} */
 
+
+
+
+/* homeScreen */
+.row1{
+  /* margin-top:150px ;
+  margin-left: 200px; */
+  margin-top: 150px;
+    margin-left: 50px;
+    width: 90%;
+    
 }
+.container1{
+  margin-top: -20px; 
+}
+@media (max-width:700px) {
+  .row1{
+   
+    margin-top: 150px;
+      margin-left: 50px;
+      width: 90%;
+      flex-direction: column;
+  }
+  .boxes{
+    flex-direction: column;
+    min-width: fit-content;
+    min-height: fit-content;
+  }
+  .box1{
+    margin-left: 80px;
+  }
+}
+
+
+
 input, select {
   box-shadow: none;
   margin-top: 10px;
@@ -233,32 +293,34 @@ input, select {
 .ant-picker {
   border:none
 }
+
+
+
+/* profilesceen */
 .profile{
   padding-top: 80px;
 }
-.ratingScreen{
-  padding-top: 150px;
 
-}
+
+
+
+
+/* admin screen */
 .adminscreen{
-  padding: 69px;
- 
-  
+  padding-top: 69px;  
 }
-.link{
-  text-decoration: none;
-  
-}
-.ulclass  {
-  list-style-type: none
-}
-.herocontent{
+
+
+/* .herocontent{
   color:black
 }
 .herobutton{
   color:red
-}
+} */
 
+
+
+/* bookscreen */
 @media (max-width:810px) {
   .payrow{
     line-height: 2px;
@@ -268,36 +330,38 @@ input, select {
         margin: 50px;
 
   }
-  .bigimg{
-    max-width:500px;
-    height:200px
-  }
-  .smallimg{
-    max-width:150px;
-    height:150px
-  }
-  .bookdetails{
-    line-height: 8px;
-    font-size: small;
-    text-align: center;
-  }
+  
+
+
+
   .photo{
     text-align: center;
   }
-  /* footer{
-    text-align: center;
-    font-size: small;
-    line-height: 5px;
-   
-  }
-  .footer{
-    margin-left: 0px;
-  } */
-   .bookdetails h1{
-    font-size: small;
-    padding-bottom: 0px;
-   }
 }
-    @media (max-width:810px) {
+    
 
+
+   
+    
+
+
+    /* Roomrating Screen */
+    .ratingScreen{
+      padding-top: 150px;
     }
+    .ulclass  {
+      list-style-type: none
+    }
+    @media (max-width:810px) {
+      .bookdetails{
+        line-height: 8px;
+        font-size: small;
+        text-align: center;
+      }
+     
+      
+     .bookdetails h1{
+        font-size: small;
+        padding-bottom: 0px;
+       }
+     }
