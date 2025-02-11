@@ -7,7 +7,8 @@ const items = [
     {
       key: '1',
       label: 'Bookings',
-     children: <Booking/>    },
+     children: <Booking/>,
+   },
     {
       key: '2',
       label: 'Rooms',
@@ -41,17 +42,17 @@ const [isAuthorized, setIsAuthorized] = useState(false);
     }
   }, []);
 
-  // Render nothing or a loading placeholder until authorization is checked
+ 
   if (!isAuthorized) {
-    return <div>Loading...</div>; // Optional: Replace with a spinner or styled loader
+    return <div>Loading...</div>; 
   }
 
   return (
   <div className='mt-3 ml-3 mr-3'>
-    <div className='adminscreen'>
-    <h1>Admin Panel</h1>
-  <Tabs defaultActiveKey="1" items={items} />
-  </div>
+    <div className='row1'>
+      <h1>Admin Panel</h1>
+      <Tabs defaultActiveKey="1" items={items} />
+   </div>
   </div>
   );
     
@@ -59,25 +60,7 @@ const [isAuthorized, setIsAuthorized] = useState(false);
 
 }
 export default AdminScreen
-// export function  Booking(){
-//   const[bookings,setBookings]=useState([])
-//   useEffect(async ()=>{
-//     try {
-//       const response=await axios.get('http://localhost:5000/api/bookings/getallbookings')
-//       setBookings(response.data)
-//     } catch (error) {
-//       console.log(error)
-//     }
-//   },[])
-// return(
-//   <div className="row">
-//     <div className="col md-10">
-//       <h1>Bookings</h1>
-//       {bookings.length&&(<h1>there are {bookings.length} bookings</h1>)}
-//     </div>
-//   </div>
-// )
-// }
+
 
 //booking list component
 export function Booking() {
@@ -88,7 +71,7 @@ export function Booking() {
       try {
         const response = await axios.get('http://localhost:5000/api/bookings/getallbookings');
         setBookings(response.data);
-        console.log(bookings.length)
+      
       } catch (error) {
         console.error(error);
       }
@@ -96,8 +79,8 @@ export function Booking() {
 
     fetchBookings();
 
-    // Cleanup is not required here as there's no subscription or side effect to clean up
-  }, []); // Dependency array ensures this runs only once on mount
+   
+  }, []);
 
   return (
     <div className="row">
@@ -107,11 +90,11 @@ export function Booking() {
         {bookings.length==0 ? (
           <h1>There are {bookings.length} bookings</h1>
         ) : (
-        <table className='table table-bordered table-dark'>
+        <table className='table table-bordered table-dark table-responsive'>
           <thead className=' bs' >
             <tr>
             <th>Booking id</th>
-            <th>User id</th>
+            <th className='d-none d-md-table-cell'>User id</th>
             <th>User name</th>
             <th>Room </th>
             <th>From</th>
@@ -123,13 +106,13 @@ export function Booking() {
           {bookings.length>0 && (
           bookings.map(booking=>{
             return(<tr>
-              <td>{booking._id}</td>
-              <td>{booking.userid}</td>
-              <td>{booking.username}</td>
+              <td className='text-break'>{booking._id}</td>
+              <td className='d-none d-md-table-cell'>{booking.userid}</td>
+              <td className=''>{booking.username}</td>
               <td>{booking.roomname}</td>
               <td>{booking.fromdate}</td>
               <td>{booking .todate}</td>
-              <td>{booking.status}</td>
+              <td className='text-break'>{booking.status}</td>
               </tr>
             )
           })
@@ -163,8 +146,8 @@ export function Room() {
 
     fetchRooms();
 
-    // Cleanup is not required here as there's no subscription or side effect to clean up
-  }, []); // Dependency array ensures this runs only once on mount
+   
+  }, []); 
 
   return (
     <div className="row">
@@ -174,7 +157,7 @@ export function Room() {
         {rooms.length==0 ? (
           <h1>There are {rooms.length} rooms</h1>
         ) : (
-        <table className='table table-bordered table-dark'>
+        <table className='table table-bordered table-dark table-responsive'>
           <thead className=' bs' >
             <tr>
             <th>Room id</th>
@@ -189,12 +172,12 @@ export function Room() {
           {rooms.length>0 && (
           rooms.map(room=>{
             return(<tr>
-              <td>{room._id}</td>
+              <td className='text-break'>{room._id}</td>
               <td>{room.name}</td>
               <td>{room.type}</td>
               <td>{room.rentperday}</td>
               <td>{room.maxcount}</td>
-              <td>{room.phonenumber}</td>
+              <td className='text-break'>{room.phonenumber}</td>
               
               </tr>
             )
@@ -221,19 +204,19 @@ export function Users(){
         const response = await axios.get("http://localhost:5000/api/users/getallusers");
         const data = response.data;
         setUsers(data);
-        console.log(data); // Do something with the data
+        console.log(data); 
       } catch (error) {
         console.error("Error fetching users:", error);
       }
     };
   
-    fetchUsers(); // Call the async function
+    fetchUsers(); 
   }, []);
   return(
-    <div className="row">
+    <div className="row ">
       <div className="col-md-12">
         <h1>Users</h1>
-        <table className="table table-dark table-bordered">
+        <table className="table table-dark table-bordered table-responsive">
           <thead>
             <tr>
               <th>User id</th>
@@ -246,7 +229,7 @@ export function Users(){
             <tbody>
               {users &&(users.map(user=>{
                 return<tr>
-                  <td>{user._id}</td>
+                  <td className='text-break'>{user._id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.isAdmin ? "yes":"no"}</td>
@@ -289,7 +272,7 @@ export function Users(){
  }
 } 
   return(
-<div className="row">
+<div className="row  ">
   <div className="col-md-5 ">
     <input type="text" className='form-control' placeholder='room name'
     value={name}  onChange={(e)=>{setName(e.target.value)}}/>

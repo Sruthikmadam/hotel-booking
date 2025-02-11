@@ -11,6 +11,8 @@ import RegisterScreen from './screen/RegisterScreen'
 import BookScreen from './screen/BookScreen';
 import ProfileScreen from './screen/ProfileScreen';
 import AdminScreen from './screen/AdminScreen';
+import Landingpage from './Landingpage';
+import ExtraScreen from './screen/ExtraScreen';
 
 // import ReviewScreen from './screen/ReviewScreen'
 // import Roomrate from './components/Roomrate';
@@ -28,9 +30,11 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route path='/hero' element={<Hero />} />
+        {/* <Route path='/hero' element={<Hero />} /> */}
         <Route path='/profile' element={<ProfileScreen />} />
-        <Route path='/' element={<Hero />} />
+        <Route path='/landing' element={<Landingpage/>} />
+        <Route path='/extra' element={<ExtraScreen/>} />
+        <Route path='/' element={<Landingpage/>} />
         <Route path='/home' element={<HomeScreen />} /> 
         <Route path='/login' element={<LoginScreen />} /> 
         <Route path='/register' element={<RegisterScreen />} /> 

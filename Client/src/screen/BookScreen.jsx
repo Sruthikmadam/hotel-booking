@@ -8,11 +8,11 @@ import moment from 'moment';
 import StripeCheckout from 'react-stripe-checkout';
 
 function BookScreen() {
-  const { roomid ,fromdate,todate} = useParams(); // Retrieve roomid from URL parameters
-  const [room, setRoom] = useState(null); // Single room object
+  const { roomid ,fromdate,todate} = useParams(); 
+  const [room, setRoom] = useState(null); 
   const [error, setError] = useState(null);
   const[totalamount,setTotalamount]=useState();
-  const [loading, setLoading] = useState(true); // Initialize loading state
+  const [loading, setLoading] = useState(true); 
   const fromDateParsed = moment(fromdate, "DD-MM-YYYY");
   const toDateParsed = moment(todate, "DD-MM-YYYY");
  
@@ -25,13 +25,13 @@ function BookScreen() {
       try {
         setLoading(true);
         const response = await axios.post('http://localhost:5000/api/rooms/getroom', {
-          roomid // Send roomid in the request body
+          roomid 
         });
-        setRoom(response.data); // Set the fetched room details
+        setRoom(response.data); 
         setTotalamount(response.data.rentperday * totaldays)
       } catch (err) {
         console.error(err);
-        setError('Failed to load room data'); // Set a custom error message
+        setError('Failed to load room data');
       } finally {
         setLoading(false);
       }
@@ -46,37 +46,8 @@ function BookScreen() {
 
   
 
-  // async function bookRoom(){
-    
-  //   const bookingdetails = {
-  //     roomname: room.name,
-  //     roomid: room._id,
-  //     userid: JSON.parse(localStorage.getItem("currentUser"))?.userid,
-  //     username: JSON.parse(localStorage.getItem("currentUser"))?.name,
-  //     fromdate,
-  //     todate,
-  //     totalamount,
-  //     totaldays
-      
-  //   };
-  
-  //   console.log('Booking Details:', bookingdetails);
-    
-
-  //   try {
-  //     const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     });
-  //     console.log("Booking successful:", result.data);
-  //   } catch (error) {
-  //     console.error("Booking failed:", error.response?.data || error.message, error);
-     
-  //   }
-  // }
  async function onToken(token){
-  console.log(token);
+  // console.log(token);
   const bookingdetails = {
     roomname: room.name,
     roomid: room._id,
@@ -90,27 +61,17 @@ function BookScreen() {
     
   };
 
-  console.log('Booking Details:', bookingdetails);
+  // console.log('Booking Details:', bookingdetails);
   
 
-  // try {
-  //   const result = await axios.post( 'http://localhost:5000/api/bookings/bookroom', bookingdetails, {
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
-  //   console.log("Booking successful:", result.data);
-  // } catch (error) {
-  //   console.error("Booking failed:", error.response?.data || error.message, error);
-   
-  // }
   try {
     const result = await axios.post(
         "http://localhost:5000/api/bookings/bookroom",
         bookingdetails,
         { headers: { "Content-Type": "application/json" } }
     );
-    console.log("Booking successful:", result.data);
+    // alert("booking successfull")
+    // console.log("Booking successful:", result.data);
     window.location.href = '/profile';
 
 } catch (error) {
@@ -120,17 +81,17 @@ function BookScreen() {
 }
  
   return (
-            <div className='container   paynow '>
-                <div className='row justify-content-center   payrow bs'>
-                   
+            <div className=' container2   paynow'>
+                <div className='row flex justify-content-center flex-d   payrow bs'>
+                    
                     {room && (
                         <div className='row flex-d ' >
                             <div className='col-md-7 photo'>
                                <h3 className='roomname'><b> {room.name}</b> </h3>
                                 <img src={room.imageurls[0]} alt="Room" className='bigimg'  />
                             </div>
-                            <div className='col-md-5 bookdetails'>
-                                <div>
+                            <div className='col-md-5 bookdetails flex-d'>
+                                <div className='details'>
                                     <h1><b>Booking Details</b></h1>
                                     <hr />
                                     <b>
@@ -140,7 +101,7 @@ function BookScreen() {
                                         <p>Max Count  :  {room.maxcount}</p>
                                     </b>
                                 </div>
-                                <div>
+                                <div className='details'>
                                    <h1><b> Amount</b></h1>
                                     <hr />
                                     <p>Total Days  :  {totaldays}</p>
@@ -149,21 +110,18 @@ function BookScreen() {
                                 </div>
                                 <div>
                                     
-                                    {/* <StripeCheckout 
-                                       token={onToken}
-                                       stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH">
-                               <button className='btn btn-primary'> Pay Now{""} </button>
-                                 </StripeCheckout> */}
-                                                      <StripeCheckout
+                                  
+     <StripeCheckout
+     
         token={onToken}
         stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH"
         amount={totalamount*100} // Amount in cents (e.g., $50.00)
-        currency="EUR" // Set the currency
+        currency="EUR" 
         name={room.name}
        
       >
          <button className='btn btn-primary'>pay now</button>
-      </StripeCheckout>
+    </StripeCheckout>
 
 
                                 </div>

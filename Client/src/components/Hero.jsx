@@ -9,6 +9,9 @@ function Hero() {
   if (user) {
     navigate('/home')
   }
+  const gohome = () => {
+    navigate("/");
+  }
   return (
     <div className="hero-section ">
 
@@ -20,11 +23,11 @@ function Hero() {
           Welcome to Your <span style={{ color: 'red' }}>Paradise</span>
         </h1>
         <p>Your journey starts here.</p>
-        <Link to="/home">
-          <button className="btn" style={{ cursor: 'pointer' }}>
+        {/* <Link to="/"> */}
+          {/* <button  onClick={gohome } className="btn" style={{ cursor: 'pointer' }}>
             Get Started
-          </button>
-        </Link>
+          </button> */}
+        {/* </Link> */}
       </section>
       <div className="background-video" >
         <video

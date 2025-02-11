@@ -1,154 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import Room from '../components/Room.jsx'
-// import { DatePicker, Space } from 'antd';
-// import 'antd/dist/reset.css';
-// import moment from 'moment';
-// const { RangePicker } = DatePicker;
-// function HomeScreen() {
-//     const [rooms, setRooms] = useState([]); // State to store rooms data
-//     const [todate, setTodate] = useState(); 
-//     const [fromdate, setFromdate] = useState(); 
-//     const [duplicateroom, setDuplicateRoom] = useState([]); 
-//     const [error, setError] = useState(); // State to handle errors
-//     const [loading, setLoading] = useState(); 
-
-
-//     useEffect(() => {
-//         const fetchRooms = async () => {
-//             try {setLoading(true)
-//                 const response = await axios.get('http://localhost:5000/api/rooms/getallrooms'); // Ensure the correct endpoint
-//                 setRooms(response.data);
-//                 setDuplicateRoom(response.data); 
-
-
-
-
-//                 setLoading(false)
-
-//             } catch (error) {
-//                 setError(true)
-
-//                 setError(error.message); // Set error state
-//                 setLoading(false)
-//             }
-//           };
-
-//                 fetchRooms();
-
-//     }, []);
-//     function filterbyDates(dates)
-// {
-//   // console.log(dates)
-//   //  console.log(dates[0].format("DD-MM-YYYY"));
-//   //  console.log(dates[1].format("DD-MM-YYYY"));
-//  setFromdate(dates[0].format("DD-MM-YYYY"));
-//  console.log(fromdate)
-//  setTodate(dates[1].format("DD-MM-YYYY"));
-//  console.log(todate)
-//  var temproom=[];
-//  var availability=false;
-//  for(const room of duplicateroom)
-//   {
-//   if(room.currentbooking.length>0)
-//     {
-//     for( const booking of room.currentbooking)
-//     {
-//       const bfromdate =moment(booking.fromdate, "DD-MM-YYYY");
-//        const btodate = moment(booking.todate, "DD-MM-YYYY");
-//        if(!(dates[0].format("DD-MM-YYYY")).isBetween(bfromdate,btodate)
-//       // if(!(dates[0].format("DD-MM-YYYY")).isBetween
-//       //   (bfromdate, btodate, null, "[]")
-//       &&
-//       !(dates[1].format("DD-MM-YYYY")).isBetween(bfromdate,btodate) )
-//       // !(dates[1].format("DD-MM-YYYY")).isBetween( (bfromdate, btodate, null, "[]") ))
-//       {
-//         if(
-//           (dates[0].format("DD-MM-YYYY"))!==bfromdate&&
-//           (dates[0].format("DD-MM-YYYY"))!==btodate&&
-//           (dates[1].format("DD-MM-YYYY"))!==bfromdate&&
-//           (dates[1].format("DD-MM-YYYY"))!==btodate
-
-//         //  !( bfromdate.isBetween(dates[0], dates[1], null, "[]")) &&      // Booking starts during the selected range
-//         //   !(btodate.isBetween(dates[0], dates[1], null, "[]")  )   
-//         )
-//         {
-//           availability=true;
-//         }
-//       }
-//     }
-//     }
-//     if(availability==true||room.currentbooking.length==0)
-//     {
-//       temproom.push(room)
-//     }
-//     setRooms(temproom)
-// }
-// }
-// // function filterbyDates(dates) {
-// //   console.log(dates);
-// //   const formattedFromDate = dates[0].format("DD-MM-YYYY");
-// //   const formattedToDate = dates[1].format("DD-MM-YYYY");
-
-// //   // Update state (if needed for other uses later)
-// //   setFromdate(formattedFromDate);
-// //   setTodate(formattedToDate);
-
-// //   const temproom = [];
-
-// //   for (const room of duplicateroom) {
-// //     let availability = true;
-
-// //     if (room.currentbooking.length > 0) {
-// //       for (const booking of room.currentbooking) {
-// //         const bookingFromDate = moment(booking.fromdate, "DD-MM-YYYY");
-// //         const bookingToDate = moment(booking.todate, "DD-MM-YYYY");
-
-// //         // Check if new dates overlap with current booking
-// //         if (
-// //           dates[0].isBetween(bookingFromDate, bookingToDate, null, "[]") || // Start date overlaps
-// //           dates[1].isBetween(bookingFromDate, bookingToDate, null, "[]") || // End date overlaps
-// //           bookingFromDate.isBetween(dates[0], dates[1], null, "[]") ||      // Booking starts during the selected range
-// //           bookingToDate.isBetween(dates[0], dates[1], null, "[]")           // Booking ends during the selected range
-// //         ) {
-// //           availability = false;
-// //           break; // No need to check further for this room
-// //         }
-// //       }
-// //     }
-
-// //     if (availability) {
-// //       temproom.push(room); // Add room if available
-// //     }
-// //   }
-
-// //   setRooms(temproom); // Update rooms with filtered data
-// // }
-
-
-//     return (
-//         <div className='container1 col'>
-//           <div className="row1">
-//             <div className="col-md-3">
-//             <RangePicker  format="DD/MM/YYYY" onChange={filterbyDates} />
-//             </div>
-//           </div>
-
-//             <div className='row justify-content-center mt-1.5 '>                                               
-//                  {loading?
-//                 (<h1>loading</h1>):(rooms.map((room)=>{
-//                     return <div className='row col-md-9 ' key={room.id} >
-//                         <Room  room={room} todate={todate} fromdate={fromdate}/>
-
-//                     </div>  }))}               
-//      </div>
-//       </div>
-//         )
-// }
-// export default HomeScreen
-
-
-
 
 
 import React, { useState, useEffect } from "react";
@@ -161,35 +10,33 @@ import moment from "moment";
 const { RangePicker } = DatePicker;
 
 function HomeScreen() {
-  const [rooms, setRooms] = useState([]); // State to store filtered rooms
+  const [rooms, setRooms] = useState([]); 
   const [todate, setTodate] = useState();
   const [fromdate, setFromdate] = useState();
-  const [duplicateroom, setDuplicateRoom] = useState([]); // Original data
-   const [filterroom, setFilterRoom] = useState([]); //
-   const [filtersearch, setFiltersearch] = useState([]); //
-   const [filtertype, setFiltertype] = useState([]); //
+  const [duplicateroom, setDuplicateRoom] = useState([]); 
+   const [filterroom, setFilterRoom] = useState([]); 
+   const [filtersearch, setFiltersearch] = useState([]); 
+   const [filtertype, setFiltertype] = useState([]); 
   
-  const [error, setError] = useState(); // State to handle errors
+  const [error, setError] = useState(); 
   const [loading, setLoading] = useState();
   const [searchkey, setSearchkey] = useState("");
   const [type, setType] = useState('all');
 
 
-  // Fetching rooms data
+  // Fetching rooms 
   useEffect(() => {
     const fetchRooms = async () => {
       try {
         setLoading(true);
         const response = await axios.get("http://localhost:5000/api/rooms/getallrooms");
 
-        setRooms(response.data); // Set rooms state
-        // console.log(rooms)
-        setDuplicateRoom(response.data); // Copy to duplicateroom
-        // console.log(duplicateroom)
+        setRooms(response.data);       
+        setDuplicateRoom(response.data);
 
         setLoading(false);
       } catch (error) {
-        setError(error.message); // Handle error
+        setError(error.message);
         setLoading(false);
       }
     };
@@ -199,16 +46,17 @@ function HomeScreen() {
 
 
 
-  // Filter rooms based on date selection
+  // Filter rooms 
 
   const filterbyDates = (dates) => {
-    console.log("Selected Dates:", dates);
-    if (!dates || dates.length < 2) return;
+  
+    if (!dates || dates.length!= 2) return;
 
     const formattedFromDate = dates[0].format("DD-MM-YYYY");
     const formattedToDate = dates[1].format("DD-MM-YYYY");
+    console.log(formattedFromDate,formattedToDate)
 
-    // Set state for selected dates
+    
     setFromdate(formattedFromDate);
     setTodate(formattedToDate);
 
@@ -226,10 +74,10 @@ function HomeScreen() {
 
           // Check for date overlap
           if (
-            moment(dates[0]).isBetween(bookingFromDate, bookingToDate, null, "[]") || // Start date overlaps
-            moment(dates[1]).isBetween(bookingFromDate, bookingToDate, null, "[]") || // End date overlaps
-            bookingFromDate.isBetween(moment(dates[0]), moment(dates[1]), null, "[]") ||      // Booking starts during the selected range
-            bookingToDate.isBetween(moment(dates[0]), moment(dates[0]), null, "[]")           // Booking ends during the selected range
+            moment(formattedFromDate).isBetween(bookingFromDate, bookingToDate), null, "[]" || // Start date overlaps
+            moment(formattedToDate).isBetween(bookingFromDate, bookingToDate) || // End date overlaps
+            bookingFromDate.isBetween(moment(formattedFromDate), moment(formattedToDate)) ||      // Booking starts during the selected range
+            bookingToDate.isBetween(moment(formattedFromDate), moment(formattedToDate))           // Booking ends during the selected range
           ) {
             isAvailable = false;
             break;
@@ -257,7 +105,7 @@ const disablePastDates = (current) => {
 function filterBySearch() {
   if(filterroom.length ){
     if(filtertype.length){
-      console.log(filtertype)
+      // console.log(filtertype)
   const filterrooms=filtertype.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
   setRooms(filterrooms)
 setFiltersearch(filterrooms)}
@@ -304,7 +152,8 @@ function filterByType(e) {
       <div className="row1 bs d-flex">
         <div className="col-md-3 form-control">
 
-          <RangePicker format="DD/MM/YYYY" onChange={filterbyDates} disabledDate={disablePastDates} />
+          <RangePicker format="DD-MM-YYYY"
+        onChange={(dates) => filterbyDates(dates)} disabledDate={disablePastDates} />
         </div>
 
         <div className="col-md-5">
@@ -326,7 +175,7 @@ function filterByType(e) {
           <h1>Loading...</h1>
         ) : (
           rooms.map((room) => (
-            <div className="row col-md-9" key={room._id}>
+            <div className="row2 col-md-6" key={room._id}>
               <Room room={room} todate={todate} fromdate={fromdate} />
             </div>
           ))

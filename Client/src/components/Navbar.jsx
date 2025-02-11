@@ -7,12 +7,12 @@ function Navbar() {
     const user = JSON.parse(localStorage.getItem('currentUser'))
     function logout() {
         localStorage.removeItem('currentUser');
-        window.location.href = '/hero'
+        window.location.href = '/'
     }
     return (
         <div className='header'>
             <nav className="navbar navbar-expand-lg  ">
-                <a className="navbar-brand nav" href="/home">Hotel Paradise</a>
+              {user? <a className="navbar-brand nav"style={{ color: 'yellow' }} href="/landing">Welcome to Paradise {user.name}</a> :<a className="navbar-brand nav"style={{ color: 'yellow' }} href="/">Paradise</a>}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon mr-4">
 
@@ -23,28 +23,28 @@ function Navbar() {
                     <ul class="navbar-nav ms-auto">
                         {user ? <><div className="dropdown">
                             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa-solid fa-user-tie" style={{ marginRight: '10px' }}></i> {user.name}
+                                <i class="fa-solid fa-user-tie" style={{ marginRight: '100px' }}></i> {user.name}
                             </button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item " style={{ color: 'black' }} href="/profile">Profile</a>
-                                <a className="dropdown-item " style={{ color: 'black' }} href="/admin">Admin Panel</a>
-                                <a className="dropdown-item " style={{ color: 'black' }} href="/home">Home</a>
-                                <a className="dropdown-item" style={{ color: 'black' }} href="#" onClick={logout}>Log Out</a>
+                                <span><a className="dropdown-item " style={{ color: 'black' }} href="/profile">Profile</a></span>
+                                <span> <a className="dropdown-item " style={{ color: 'black' }} href="/admin">Admin Panel</a></span>
+                                <span> <a className="dropdown-item " style={{ color: 'black' }} href="/home">Kerala paradise</a></span>
+                                <span> <a className="dropdown-item" style={{ color: 'black' }} href="#" onClick={logout}>Log Out</a></span>
 
                             </div>
                         </div>
                         </> :
                             <>         <li className="nav-item mr-5">
-                                <a className="nav-link nav" href="/home">Home</a>
+                                <a className="nav-link nav" href="/home">Kerala paradise</a>
                             </li>
                                 <li className="nav-item mr-5">
-                                    <a className="nav-link nav" href="#contact-details">Contact</a>
+                                    <a className="nav-link nav" style={{ color: 'orange' }} href="#contact-details">Contact</a>
                                 </li>
                                 <li className="nav-item active mr-4">
-                                    <a className="nav-link nav" href="/register">Register </a>
+                                    <a className="nav-link nav"  style={{ color: 'white' }}href="/register">Register </a>
                                 </li>
                                 <li className="nav-item mr-5">
-                                    <a className="nav-link nav" href="/login">Login</a>
+                                    <a className="nav-link nav" style={{ color: 'red' }} href="/login">Login</a>
                                 </li>
                                
 
@@ -59,3 +59,4 @@ function Navbar() {
 }
 
 export default Navbar
+

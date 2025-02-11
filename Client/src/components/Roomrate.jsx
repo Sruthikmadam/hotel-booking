@@ -96,7 +96,9 @@ const Roomrate = ({ roomId }) => {
           </div>
         ) :(
         <div>
-          <Link  to='/login'>
+          <Link  to='/login'
+           onClick={(e) => {
+            alert("You need to log in to continue!");}}>
            
            <div  className='link'>
              {[1, 2, 3, 4, 5].map((star) => (

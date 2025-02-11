@@ -1,13 +1,21 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+
+
 }
 
  #root{
   padding: 0;
+  height: 100%;
+ 
  }
 body{
   margin: 0;
-  background-color: rgb(187, 182, 182);
+  color: rgb(14, 12, 12);
+  background-color: rgba(182, 252, 226, 0.72);
   overflow-x: hidden;
 
 }
@@ -115,8 +123,8 @@ h1{
 .bs{
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 70px ;
-  border: 5px !important;
-  padding: 20px !important;
+  /* border: 5px !important; */ border: 5px;
+  /* padding: 20px !important; */  padding: 10px;
   border-radius: 30px;
   text-decoration: none;
 }
@@ -124,8 +132,8 @@ h1{
 
 .boxes {
 margin-top: 0px;
-width:80%;
-height: 350px;
+width:100%; 
+height: auto;
 
   display: flex;
   flex-direction: row;
@@ -136,7 +144,7 @@ height: 350px;
   border: 1px solid #ddd; 
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-  margin-bottom: 20px;
+  /* margin-bottom: 10px; */
   background-color: #f9f9f9; 
 }
 
@@ -185,8 +193,8 @@ height: 350px;
 /* registerScreen/login */
  .container{
   margin-bottom: 40px;
-  margin-right: 100px;
-  margin-right: 100px;
+  /* margin-right: 100px; */
+  /* margin-right: 100px; */margin-left: 100px;
   margin-top: 100px; 
   border-radius: 10px;
   width: auto;
@@ -247,7 +255,13 @@ height: 350px;
   margin-top: 120px;
   background-color: #f9f9f9;
 } */
-
+ 
+/* adminscreen */
+.adminscreen{
+  display: grid;
+  width:100%;
+  grid-template-columns: repeat(auto-fit,100px);
+}
 
 
 
@@ -260,27 +274,57 @@ height: 350px;
     width: 90%;
     
 }
+row{
+  padding-right: 200px;
+  margin-left: -200px;
+
+  /* grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-auto-flow: row; */
+}
+row2{
+  margin-left: -100px;
+  margin-bottom:-100px
+}
 .container1{
   margin-top: -20px; 
 }
-@media (max-width:700px) {
+@media (max-width:768px) {
+  row{
+    flex-direction: column;
+    align-items: center;
+    margin-left: 1000px;
+  }
   .row1{
    
     margin-top: 150px;
-      margin-left: 50px;
+      margin-left: 20px;
       width: 90%;
       flex-direction: column;
+      
   }
   .boxes{
     flex-direction: column;
-    min-width: fit-content;
-    min-height: fit-content;
+    /* min-width: fit-content; */
+    /* min-height:fit-content; */
+    overflow: hidden;
+  
   }
   .box1{
     margin-left: 80px;
   }
 }
+@media (max-width:1073px) {
+  .row2{
+    max-width:100%;
+    
+  }
+  .box1{
 
+    margin-right: auto;
+    margin-left:-10px
+
+  }
+}
 
 
 input, select {

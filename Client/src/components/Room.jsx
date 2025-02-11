@@ -16,7 +16,7 @@ function Room({ room, fromdate, todate }) {
   const handleShow = () => setShow(true);
   const user=localStorage.getItem("currentUser")
   return (
-    <div className='container2'>
+    <div className='container2 row2 '>
       <div className="boxes bs" >
         <div className='box1'>
           <img src={room.imageurls[0]} className='smallimg' />

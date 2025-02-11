@@ -1,27 +1,37 @@
-.navbar{
-    background-color: black;
+/* .navbar{
+    background-color: rgb(223, 54, 54);
   
     
-  }
+  } */
   .navbar {
-    position: fixed; /* Change to fixed */
+    position: fixed;
     top: 0; 
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent */
-    color: white;
+    background-color:rgba(0, 0, 0, 0.5);
+    /* color: white; */
     width: 100%;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000;
     transition: background-color 0.3s;
   }
   
   .navbar:hover {
-    background-color: rgba(63, 59, 59, 0.8); /* Darker on hover */
+    background-color: rgba(25, 26, 24, 0.5); /* Darker on hover */
+    
   }
-  
+  .delhi{
+    border: rgb(165, 26, 26);
+    background-color: rgb(170, 166, 145);
+    border-radius: 30px 20px;
+  }
+  .delhi:hover{
+    background-color: rgb(20, 17, 17);
+    color:white;
+    
+  }
   .logo {
   
     font-size: 1.5rem;
@@ -56,9 +66,10 @@
   
   
   
-  .nav-link,.navbar-brand{
+  /* .nav-link,.navbar-brand{
     color: white;
   }
   .navbar-nav{
     margin-left: auto;
-  }
+  } */
+   /* Navbar container */
