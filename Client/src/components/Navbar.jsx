@@ -1,14 +1,36 @@
 import React from 'react'
  import './Navbar.css'
-
-
+ import { useEffect, useState } from "react";
+ import axios  from "axios"
+ import { useUser } from "../../UserContext.jsx";
+//   import { useNavigate } from "react-router-dom"; 
 
 function Navbar() {
-    const user = JSON.parse(localStorage.getItem('currentUser'))
-    function logout() {
-        localStorage.removeItem('currentUser');
-        window.location.href = '/'
-    }
+    
+    const { user, setUser } = useUser();
+    // const navigate = useNavigate();
+    const logout = async () => {
+        
+        try {
+            await axios.get("http://localhost:5000/api/logout", {
+                withCredentials: true, 
+            });
+
+            setUser(null); 
+            //  navigate("/"); 
+            window.location.href = "/";
+
+          
+        } catch (error) {
+            console.error("Logout failed:", error.response?.data || error.message);
+        }
+    };
+
+
+        useEffect(() => {
+            console.log("User fetched:", user);
+            }, [user]);
+
     return (
         <div className='header'>
             <nav className="navbar navbar-expand-lg  ">
@@ -29,7 +51,8 @@ function Navbar() {
                                 <span><a className="dropdown-item " style={{ color: 'black' }} href="/profile">Profile</a></span>
                                 <span> <a className="dropdown-item " style={{ color: 'black' }} href="/admin">Admin Panel</a></span>
                                 <span> <a className="dropdown-item " style={{ color: 'black' }} href="/home">Kerala paradise</a></span>
-                                <span> <a className="dropdown-item" style={{ color: 'black' }} href="#" onClick={logout}>Log Out</a></span>
+                               
+                                <span> <a className="dropdown-item" style={{ color: 'black' }} onClick={logout}>Log Out</a></span>
 
                             </div>
                         </div>

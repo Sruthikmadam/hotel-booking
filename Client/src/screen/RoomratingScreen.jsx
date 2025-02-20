@@ -86,6 +86,7 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useUser } from '../../UserContext';
 
 const RoomratingScreen = () => {
   const { roomId ,name} = useParams();
@@ -93,6 +94,7 @@ const RoomratingScreen = () => {
   const [review, setReview] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [hoverRating, setHoverRating] = useState(0); // For hover effect
+  const {user, setUser} = useUser();// fetching user from usercontext
 
 
   useEffect(() => {
@@ -151,7 +153,9 @@ const RoomratingScreen = () => {
 
   return (
       <div className="ratingScreen justify-content-center text-center">
+        {user?(
     <div className="ratingScreen justify-content-center text-center">
+     
       <h3>Rate this room</h3>
       <div>
         {[1, 2, 3, 4, 5].map((star) => (
@@ -178,8 +182,8 @@ const RoomratingScreen = () => {
         />
       </div>
       <button onClick={handleSubmit}>Submit Rating</button>
-    </div>
-
+    </div>):(<div className="ratingScreen justify-content-center text-center"><a href='/login'> login to rate this app</a></div>)}
+      
 
     <div>
       <h2 className='pt-5'>Customer Reviews</h2>

@@ -3,81 +3,36 @@ import axios from 'axios';
 // import RoomratingScreen from '../screen/RoomratingScreen';
 import { Link } from 'react-router-dom';
 import './Roomrate.css'
+import { useUser } from '../../UserContext.jsx'
+
 
 
 const Roomrate = ({ roomId }) => {
-  const [averageRating, setAverageRating] = useState(null);
-  const user = JSON.parse(localStorage.getItem('currentUser'))
-  // const userId=user.userid
-  // console.log("room",roomId)
-  // console.log("user",userId)
-
+  const [averageRating, setAverageRating] = useState(0);
+ 
+  
   useEffect(() => {
     const fetchAverageRating = async () => {
+      console.log(roomId)
       try {
         const response = await axios.get(`http://localhost:5000/api/reviews/average-rating/${roomId}`);
-        setAverageRating(response.data.averageRating);
-        console.log(averageRating)
+        setAverageRating(response.data.averageRating);        
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchAverageRating();
-  }, [roomId]);
-
-  // return (
-  //   <div>
-  //     {/* <h2>Room Details</h2> */}
-  //     <div>
-  //       { averageRating !== null? (
-
-  //         <div>
-  //           {/* <h4> {averageRating.toFixed(1)} / 5</h4> */}
-
-  //           <Link  to={`/roomrate/${roomId}/${user.userid}`}>
-  //           {/* <Link  to={`/reviews/${roomId}/${userId}`}> */}
-  //           <div  className='link'>
-  //             {[1, 2, 3, 4, 5].map((star) => (
-               
-  //               <span
-  //                 key={star}
-  //                 style={{
-  //                   color: star <= averageRating ? 'gold' : 'gray',
-  //                   fontSize: '24px',
-  //                 }}
-  //               >
-  //                 &#9733;
-  //               </span>
-  //             ))}
-  //           </div></Link> 
-  //         </div>
-  //       ) :(
-        
-  //        <Link to={`/login}`}>
-           
-  //        </Link> 
-  //       )}
-  //     </div>
-  //     {/* {room.name} */}
-      
-      
-  //     {/* <RoomratingScreen roomId={roomId} userId={userid} /> */}
-  //   </div>
-  // );
-
-
-
+  }, []);
+ 
   return (
     <div>
-      {/* <h2>Room Details</h2> */}
+      
       <div>
-        { averageRating !== null&& user? (
-
+        { averageRating !== null? (
           <div>
-          
-
-            <Link  to={`/roomrate/${roomId}/${user.name}`}>
+            {/* <Link  to={`/roomrate/${roomId}/${user.name}`}> */}
+            <Link  to={`/roomrate/${roomId}`}>
            
             <div  className='link'>
               {[1, 2, 3, 4, 5].map((star) => (
@@ -85,7 +40,7 @@ const Roomrate = ({ roomId }) => {
                 <span
                   key={star}
                   style={{
-                    color: star <= averageRating ? 'gold' : 'gray',
+                    color: star <= averageRating? 'gold' : 'grey',
                     fontSize: '24px',
                   }}
                 >
@@ -95,8 +50,8 @@ const Roomrate = ({ roomId }) => {
             </div></Link> 
           </div>
         ) :(
-        <div>
-          <Link  to='/login'
+        <div><h1>no average rating</h1>
+          {/* <Link  to='/login'
            onClick={(e) => {
             alert("You need to log in to continue!");}}>
            
@@ -113,7 +68,7 @@ const Roomrate = ({ roomId }) => {
                  &#9733;
                </span>
              ))}
-           </div></Link> 
+           </div></Link>  */}
         </div>
         )}
       </div>     

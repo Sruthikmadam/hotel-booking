@@ -18,15 +18,20 @@ function LoginScreen() {
     try {
       setLoading(true);
       setError('');
-      const response = await axios.post( 'http://localhost:5000/api/users/login', { email, password });
-console.log(response.data)
-      if (response.status === 200) {
+      const response = await axios.post( 'http://localhost:5000/api/users/login', { email, password }, { withCredentials: true })
+console.log(response)
+//  {headers: { 'Content-Type': 'application/json',}};
+      if (response.status == 200) {
         // Save the token or user data if needed (e.g., in localStorage)
-        localStorage.setItem('currentUser', JSON.stringify(response.data));
+        // localStorage.setItem('currentUser', JSON.stringify(response.data));
 
-        console.log("Login successful",JSON.stringify(response.data));       
+        // console.log("Login successful",JSON.stringify(response.data));  
+        // console.log(user)
+        // let user=response.data 
+        // if(user) {  
          navigate('/home');      
         window.location.reload();
+      // }
       }
       setLoading(false);
     

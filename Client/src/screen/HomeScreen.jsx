@@ -29,8 +29,9 @@ function HomeScreen() {
     const fetchRooms = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/api/rooms/getallrooms");
-
+        const response = await axios.get("http://localhost:5000/api/rooms/home/getallrooms");
+       
+      
         setRooms(response.data);       
         setDuplicateRoom(response.data);
 
@@ -74,10 +75,10 @@ function HomeScreen() {
 
           // Check for date overlap
           if (
-            moment(formattedFromDate).isBetween(bookingFromDate, bookingToDate), null, "[]" || // Start date overlaps
-            moment(formattedToDate).isBetween(bookingFromDate, bookingToDate) || // End date overlaps
-            bookingFromDate.isBetween(moment(formattedFromDate), moment(formattedToDate)) ||      // Booking starts during the selected range
-            bookingToDate.isBetween(moment(formattedFromDate), moment(formattedToDate))           // Booking ends during the selected range
+            moment(formattedFromDate).isBetween(bookingFromDate, bookingToDate, null, '[)') || // Start date overlaps
+            moment(formattedToDate).isBetween(bookingFromDate, bookingToDate, null, '[)') || // End date overlaps
+            bookingFromDate.isBetween(moment(formattedFromDate), moment(formattedToDate), null, '[)') || // Booking starts during the selected range
+            bookingToDate.isBetween(moment(formattedFromDate), moment(formattedToDate), null, '[)') // Booking ends during the selected range
           ) {
             isAvailable = false;
             break;

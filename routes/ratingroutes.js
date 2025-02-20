@@ -37,7 +37,7 @@ router.get('/average-rating/:roomId', async (req, res) => {
     const averageRating = ratings.length > 0
       ? ratings.reduce((sum, rating) => sum + rating.rating, 0) / ratings.length
       : 4;
-
+console.log("average rating", averageRating )
     res.json({ averageRating });
   } catch (err) {
     console.error(err);

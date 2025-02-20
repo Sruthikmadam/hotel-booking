@@ -13,6 +13,7 @@ import ProfileScreen from './screen/ProfileScreen';
 import AdminScreen from './screen/AdminScreen';
 import Landingpage from './Landingpage';
 import ExtraScreen from './screen/ExtraScreen';
+import { UserProvider } from '../UserContext.jsx'
 
 // import ReviewScreen from './screen/ReviewScreen'
 // import Roomrate from './components/Roomrate';
@@ -25,6 +26,9 @@ function App() {
 
   return (
     <div className='app'>
+      <UserProvider>
+           
+       
     <Navbar/>
     
     <BrowserRouter>
@@ -39,7 +43,8 @@ function App() {
         <Route path='/login' element={<LoginScreen />} /> 
         <Route path='/register' element={<RegisterScreen />} /> 
         {/* <Route path='/review' element={<Roomrate />} />  */}
-        <Route path='/roomrate/:roomId/:name' element={<RoomratingScreen />} /> 
+        {/* <Route path='/roomrate/:roomId/:name' element={<RoomratingScreen />} />  */}
+        <Route path='/roomrate/:roomId' element={<RoomratingScreen />} /> 
         {/* <Route path='/reviews/:roomId/:userId' element={<ReviewScreen />} />  */}
         <Route path='/book/:roomid/:fromdate/:todate' element={<BookScreen />} /> 
         <Route path='/admin' element={<AdminScreen />} /> 
@@ -47,7 +52,7 @@ function App() {
       </Routes>
     </BrowserRouter>
     <Footer/>
-    
+    </UserProvider>
     </div>
   )
 }

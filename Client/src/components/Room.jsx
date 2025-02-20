@@ -1,20 +1,25 @@
 import React from 'react'
 import './Room.css'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 import Roomrate from '../components/Roomrate'
 // import Review from '../components/Review'
+//  import { useUser } from '../../UserContext.jsx'
 
 
 function Room({ room, fromdate, todate }) {
   const [show, setShow] = useState(false);
-
+  // const {user, setUser} = useUser();// fetching user from usercontext 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const user=localStorage.getItem("currentUser")
+  const [loading, setLoading] = useState(true); 
+  // useEffect(() => {
+  //   console.log("fetched user",user);
+  // },[user]);
+
   return (
     <div className='container2 row2 '>
       <div className="boxes bs" >
@@ -34,13 +39,14 @@ function Room({ room, fromdate, todate }) {
             
 
           <div >
-            {(fromdate && todate) &&user&& (
-            <Link to={`/book/${room._id}/${fromdate}/${todate}`}>
-              <button className='btn btn-primary'>Book Now </button></Link>)}
-
-              {(fromdate && todate) &&(!user)&& (
+         
+            {(fromdate && todate) && (
+              <Link to={`/book/${room._id}/${fromdate}/${todate}`}> 
+                <button className='btn btn-primary'>Book Now </button></Link>)}
+{/* 
+              {(fromdate && todate) && (
             <Link to='/login'>
-              <button className='btn btn-primary'>Login Please </button></Link>)}
+              <button className='btn btn-primary'>Login Please </button></Link>)} */}
            
             <button className='btn btn-primary' onClick={handleShow} style={{ float: '' }}>view details</button>
           </div>

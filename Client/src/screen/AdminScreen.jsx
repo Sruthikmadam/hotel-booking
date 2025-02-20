@@ -1,6 +1,7 @@
 
 import React ,{useEffect,useState} from 'react';
 import axios from 'axios';
+import { useUser } from '../../UserContext';
 
 import { Tabs } from 'antd';
 const items = [
@@ -32,20 +33,26 @@ const items = [
 function AdminScreen() {
 
 const [isAuthorized, setIsAuthorized] = useState(false);
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-    if (user && user.isAdmin) {
-      setIsAuthorized(true);
-    } else {
-      window.location.href = "/home";
-    }
-  }, []);
+const {user,setUser}=useUser();
+console.log("admin user",user)
+  // useEffect(() => {
+    
+  //   // const user = JSON.parse(localStorage.getItem("currentUser"));
+  //   if (user && user.isAdmin) {
+  //     setIsAuthorized(false);
+  //    } 
+  //   // else {
+  //   //   // window.location.href = "/home";
+  //   //   setIsAuthorized(false);
+  //   // }
+  // }, [user]);
 
  
-  if (!isAuthorized) {
-    return <div>Loading...</div>; 
-  }
+  // if (!isAuthorized) {
+  //    <div>you are not admin</div>; 
+  //   window.location.href = "/home"
+
+  // }
 
   return (
   <div className='mt-3 ml-3 mr-3'>
@@ -84,7 +91,7 @@ export function Booking() {
 
   return (
     <div className="row">
-      <div className="col md-6">
+      <div className="col  md-6">
         <h1>Bookings</h1>
 
         {bookings.length==0 ? (

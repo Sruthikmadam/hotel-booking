@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
+import { useUser } from '../../UserContext';
 // import './BookScreen.css'
-
+import { useNavigate } from 'react-router-dom';
 import StripeCheckout from 'react-stripe-checkout';
 
 function BookScreen() {
+ const  {user,setUser}=useUser()
   const { roomid ,fromdate,todate} = useParams(); 
   const [room, setRoom] = useState(null); 
   const [error, setError] = useState(null);
@@ -15,18 +17,19 @@ function BookScreen() {
   const [loading, setLoading] = useState(true); 
   const fromDateParsed = moment(fromdate, "DD-MM-YYYY");
   const toDateParsed = moment(todate, "DD-MM-YYYY");
+
  
   // Calculate the difference in days
   const totaldays = toDateParsed.diff(fromDateParsed, 'days')+1;
-
+const navigate=useNavigate();
   
   useEffect(() => {
     const fetchRoom = async () => {
       try {
         setLoading(true);
-        const response = await axios.post('http://localhost:5000/api/rooms/getroom', {
+        const response = await axios.post('http://localhost:5000/api/rooms/getroom' ,{
           roomid 
-        });
+        },{ withCredentials: true });
         setRoom(response.data); 
         setTotalamount(response.data.rentperday * totaldays)
       } catch (err) {
@@ -41,8 +44,19 @@ function BookScreen() {
     
   }, [roomid]); 
 
+  // useEffect(() => {
+  //   console.log("book user",user)},[]);
+  //   if(user==null){
+  //     navigate('/login')
+  //   }
 
+  useEffect(() => {
+    if (!user) {
+        navigate("/login");  // Redirect if user is not logged in
+    }
+}, [user, navigate]);
 
+if (!user) return null;  // Prevent rendering before redirecting
 
   
 
@@ -51,8 +65,8 @@ function BookScreen() {
   const bookingdetails = {
     roomname: room.name,
     roomid: room._id,
-    userid: JSON.parse(localStorage.getItem("currentUser"))?.userid,
-    username: JSON.parse(localStorage.getItem("currentUser"))?.name,
+    userid: user?._id,
+    username:user?.name,
     fromdate,
     todate,
     totalamount,
@@ -66,9 +80,9 @@ function BookScreen() {
 
   try {
     const result = await axios.post(
-        "http://localhost:5000/api/bookings/bookroom",
+        "http://localhost:5000/api/bookings/bookroom", 
         bookingdetails,
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json" } , withCredentials: true },
     );
     // alert("booking successfull")
     // console.log("Booking successful:", result.data);
@@ -95,7 +109,7 @@ function BookScreen() {
                                     <h1><b>Booking Details</b></h1>
                                     <hr />
                                     <b>
-                                        <p>Name  :    {JSON.parse(localStorage.getItem('currentUser')).name}</p>
+                                        <p>Name  :    {user.name}</p>
                                         <p>From Date  :  {fromdate}</p>
                                         <p>To Date  :  {todate}</p>
                                         <p>Max Count  :  {room.maxcount}</p>

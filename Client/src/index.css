@@ -391,8 +391,11 @@ input, select {
 
     /* Roomrating Screen */
     .ratingScreen{
-      padding-top: 150px;
-    }
+     
+      
+      padding-top: 50px;
+  }
+    
     .ulclass  {
       list-style-type: none
     }

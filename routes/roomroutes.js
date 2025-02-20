@@ -25,7 +25,7 @@ router.post('/getroom', async (req, res) => {
     
 
     if (!room) {
-      return res.status(404).send({ message: 'Room not found' });
+      return res.status(400).send({ message: 'Room not found' });
     }
 
     res.send(room);

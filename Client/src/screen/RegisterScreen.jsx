@@ -17,32 +17,35 @@ function RegisterScreen() {
 
   
     if (password == confirmPassword) {
-      const user = { name, email, password ,isAdmin:"false"};
+      const user = {name, email, password ,isAdmin:"false"};
+      
+  
       console.log(user)
       try {
-        const response = await axios.post('http://localhost:5000/api/users/register', user);
-        console.log(response.data)
+        const response = await axios.post('http://localhost:5000/api/users/register', user,{ withCredentials: true ,
+         headers: { "Content-Type": "application/json" }} );
+        console.log(response.status)
        
         
-            if (response.status >= 200 && response.status < 300) {
-             
-              navigate('/login');
+            if (response.status==201) {
+              console.log("Registration successful:", response.data);
+              navigate('/home');
               }
         
       }catch (err) {
         // Handle specific error messages from the backend
-        if (err.response && err.response.data && err.response.data.message) {
-            setError(err.response.data.message); // Display backend error message
-        } else {
-            setError('Registration failed. Please try again.');
-        }
-        console.error(err);
+        // if (err.response && err.response.data && err.response.data.message) {
+        //     setError(err.response.data.message); // Display backend error message
+        // } else {
+        //     setError('Registration failed. Please try again.');
+        // }
+        console.error("Registration failed",err);
     }
     }
       else{
       setError('Passwords do not match');
       return;
-    }
+     }
   }
 
   return (
