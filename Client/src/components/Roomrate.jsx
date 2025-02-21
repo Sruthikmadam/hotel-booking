@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; 
-// import RoomratingScreen from '../screen/RoomratingScreen';
+import axios from 'axios';
+import RoomratingScreen from '../screen/RoomratingScreen';
 import { Link } from 'react-router-dom';
 import './Roomrate.css'
 import { useUser } from '../../UserContext.jsx'
 
 
 
-const Roomrate = ({ roomId }) => {
+const Roomrate = ({ roomId, roomName }) => {
   const [averageRating, setAverageRating] = useState(0);
- 
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
   useEffect(() => {
     const fetchAverageRating = async () => {
-      console.log(roomId)
+      // console.log(roomId)
       try {
         const response = await axios.get(`http://localhost:5000/api/reviews/average-rating/${roomId}`);
-        setAverageRating(response.data.averageRating);        
+        setAverageRating(response.data.averageRating);
       } catch (error) {
         console.error(error);
       }
@@ -24,54 +25,36 @@ const Roomrate = ({ roomId }) => {
 
     fetchAverageRating();
   }, []);
- 
+
   return (
     <div>
-      
+
       <div>
-        { averageRating !== null? (
+        {averageRating !== null && (
           <div>
-            {/* <Link  to={`/roomrate/${roomId}/${user.name}`}> */}
-            <Link  to={`/roomrate/${roomId}`}>
-           
-            <div  className='link'>
+
+            <div className="link" onClick={() => setIsModalOpen(true)} style={{ cursor: "pointer" }}>
               {[1, 2, 3, 4, 5].map((star) => (
-               
+
                 <span
                   key={star}
                   style={{
-                    color: star <= averageRating? 'gold' : 'grey',
+                    color: star <= averageRating ? 'gold' : 'grey',
                     fontSize: '24px',
                   }}
                 >
                   &#9733;
                 </span>
               ))}
-            </div></Link> 
+
+            </div>
+            <RoomratingScreen isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} roomId={roomId} roomName={roomName} />
+
           </div>
-        ) :(
-        <div><h1>no average rating</h1>
-          {/* <Link  to='/login'
-           onClick={(e) => {
-            alert("You need to log in to continue!");}}>
-           
-           <div  className='link'>
-             {[1, 2, 3, 4, 5].map((star) => (
-              
-               <span
-                 key={star}
-                 style={{
-                   color: star <= averageRating ? 'gold' : 'gray',
-                   fontSize: '24px',
-                 }}
-               >
-                 &#9733;
-               </span>
-             ))}
-           </div></Link>  */}
-        </div>
-        )}
-      </div>     
+        )
+
+        }
+      </div>
     </div>
   );
 };

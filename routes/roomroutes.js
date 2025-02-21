@@ -11,9 +11,6 @@ router.get('/getallrooms',async(req,res)=>{
   }
 });
 
-
-
-
 router.post('/getroom', async (req, res) => {
   try {
     const { roomid } = req.body;

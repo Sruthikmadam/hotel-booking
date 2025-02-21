@@ -14,45 +14,36 @@ import AdminScreen from './screen/AdminScreen';
 import Landingpage from './Landingpage';
 import ExtraScreen from './screen/ExtraScreen';
 import { UserProvider } from '../UserContext.jsx'
-
-// import ReviewScreen from './screen/ReviewScreen'
-// import Roomrate from './components/Roomrate';
- import RoomratingScreen from './screen/RoomratingScreen';
+import RoomratingScreen from './screen/RoomratingScreen';
 
 
 function App() {
-  
-  
+
+
 
   return (
     <div className='app'>
       <UserProvider>
-           
-       
-    <Navbar/>
-    
-    <BrowserRouter>
-      <Routes>
+        <Navbar />
+        <BrowserRouter>
+          <Routes>
 
-        {/* <Route path='/hero' element={<Hero />} /> */}
-        <Route path='/profile' element={<ProfileScreen />} />
-        <Route path='/landing' element={<Landingpage/>} />
-        <Route path='/extra' element={<ExtraScreen/>} />
-        <Route path='/' element={<Landingpage/>} />
-        <Route path='/home' element={<HomeScreen />} /> 
-        <Route path='/login' element={<LoginScreen />} /> 
-        <Route path='/register' element={<RegisterScreen />} /> 
-        {/* <Route path='/review' element={<Roomrate />} />  */}
-        {/* <Route path='/roomrate/:roomId/:name' element={<RoomratingScreen />} />  */}
-        <Route path='/roomrate/:roomId' element={<RoomratingScreen />} /> 
-        {/* <Route path='/reviews/:roomId/:userId' element={<ReviewScreen />} />  */}
-        <Route path='/book/:roomid/:fromdate/:todate' element={<BookScreen />} /> 
-        <Route path='/admin' element={<AdminScreen />} /> 
 
-      </Routes>
-    </BrowserRouter>
-    <Footer/>
-    </UserProvider>
+            <Route path='/profile' element={<ProfileScreen />} />
+            <Route path='/landing' element={<Landingpage />} />
+            <Route path='/extra' element={<ExtraScreen />} />
+            <Route path='/' element={<Landingpage />} />
+            <Route path='/home' element={<HomeScreen />} />
+            <Route path='/login' element={<LoginScreen />} />
+            <Route path='/register' element={<RegisterScreen />} />
+            <Route path='/roomrate/:roomId' element={<RoomratingScreen />} />
+            <Route path='/book/:roomid/:fromdate/:todate' element={<BookScreen />} />
+            <Route path='/admin' element={<AdminScreen />} />
+
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </UserProvider>
     </div>
   )
 }

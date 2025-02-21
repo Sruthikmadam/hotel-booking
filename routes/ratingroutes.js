@@ -1,16 +1,10 @@
 const express = require('express');
-const RoomRating = require('../models/roomrating'); // Path to the RoomRating model
+const RoomRating = require('../models/roomrating');
 const router = express.Router();
-
-
-
 
 router.post('/rate-room', async (req, res) => {
   try {
     const { roomId, name, rating, review } = req.body;
-    //  console.log(roomId, userId);
-
-    // Create a new room rating
     const newRating = new RoomRating({
       roomId,
       name,
@@ -37,7 +31,7 @@ router.get('/average-rating/:roomId', async (req, res) => {
     const averageRating = ratings.length > 0
       ? ratings.reduce((sum, rating) => sum + rating.rating, 0) / ratings.length
       : 4;
-console.log("average rating", averageRating )
+// console.log("average rating", averageRating )
     res.json({ averageRating });
   } catch (err) {
     console.error(err);
@@ -47,7 +41,7 @@ console.log("average rating", averageRating )
 // Get all reviews
 router.get("/getreview", async (req, res) => {
   const { roomId } = req.query;
-  console.log("roomId in back", roomId)
+  // console.log("roomId in back", roomId)
   try {
     const reviews = await RoomRating.find({ roomId }).sort({ date: -1 });
     res.status(200).json(reviews);

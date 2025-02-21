@@ -11,7 +11,7 @@ const userSchema=mongoose.Schema({
         type:String,
         required:[true,"Please Enter email"],
         unique: true,
-        validate:[isEmail,"please enter valid email"],//isEmail -npm i validator,for validating email
+        validate:[isEmail,"please enter valid email"],
         lowercase:true
 
     },

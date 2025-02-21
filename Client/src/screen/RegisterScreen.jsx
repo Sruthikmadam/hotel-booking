@@ -33,12 +33,6 @@ function RegisterScreen() {
               }
         
       }catch (err) {
-        // Handle specific error messages from the backend
-        // if (err.response && err.response.data && err.response.data.message) {
-        //     setError(err.response.data.message); // Display backend error message
-        // } else {
-        //     setError('Registration failed. Please try again.');
-        // }
         console.error("Registration failed",err);
     }
     }
@@ -54,7 +48,7 @@ function RegisterScreen() {
         backgroundImage: `url(${regimg})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        height: '600px',
+        height: '100vh',
         width: '100%',
       }} >
     <div className="container bs d-flex flex-column justify-content-center register align-items-center "style={{backgroundColor:'white'}}>
@@ -106,7 +100,6 @@ function RegisterScreen() {
         </div>
          {error && <div className="alert alert-danger">{error}</div>}
         <button type="submit" className="btn btn-primary"onClick={register} disabled={loading}>
-          {/* {loading ? 'Registering...' : 'Register'} */}
         register
         </button> 
         

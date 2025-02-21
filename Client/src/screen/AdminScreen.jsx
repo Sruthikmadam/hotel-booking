@@ -35,36 +35,14 @@ function AdminScreen() {
 const [isAuthorized, setIsAuthorized] = useState(false);
 const {user,setUser}=useUser();
 console.log("admin user",user)
-  // useEffect(() => {
-    
-  //   // const user = JSON.parse(localStorage.getItem("currentUser"));
-  //   if (user && user.isAdmin) {
-  //     setIsAuthorized(false);
-  //    } 
-  //   // else {
-  //   //   // window.location.href = "/home";
-  //   //   setIsAuthorized(false);
-  //   // }
-  // }, [user]);
-
- 
-  // if (!isAuthorized) {
-  //    <div>you are not admin</div>; 
-  //   window.location.href = "/home"
-
-  // }
-
   return (
   <div className='mt-3 ml-3 mr-3'>
-    <div className='row1'>
+    <div className='row1 adminrow'>
       <h1>Admin Panel</h1>
       <Tabs defaultActiveKey="1" items={items} />
    </div>
   </div>
   );
-    
-  
-
 }
 export default AdminScreen
 
@@ -76,8 +54,9 @@ export function Booking() {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/bookings/getallbookings');
+        const response = await axios.get('http://localhost:5000/api/bookings/admin/getallbookings');
         setBookings(response.data);
+        console.log("booking data",response.data)
       
       } catch (error) {
         console.error(error);
@@ -143,7 +122,7 @@ export function Room() {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/rooms/getallrooms');
+        const response = await axios.get('http://localhost:5000/api/rooms/home/getallrooms');
         setRooms(response.data);
         console.log(rooms.length)
       } catch (error) {

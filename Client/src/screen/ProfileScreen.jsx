@@ -9,20 +9,9 @@ import { Tag } from 'antd';
  import { useUser } from "../../UserContext.jsx";
 
 function ProfileScreen() {
-    // const[user,setUser]=useState()
-    // const user = JSON.parse(localStorage.getItem('currentUser'));
+   
      const { user, setUser } = useUser();
     console.log("user profile",user)
-    // useEffect(() => {
-    //     console.log("User state:", user); 
-    //     if (user === undefined) return; 
-    //     if (!user) {
-    //         console.log("Redirecting to login...");
-    //         window.location.href = '/login';
-    //     }
-    // }, [user]);
-    
-
     const tabItems = [
         {
             label: 'Profile',
@@ -54,7 +43,6 @@ function ProfileScreen() {
 export default ProfileScreen;
 
 export function MyBooking() {
-    // const user = JSON.parse(localStorage.getItem('currentUser'));
     const {user,setUser}=useUser()
     const [bookings, setBookings] = useState([]);
     const userid = user._id;
@@ -105,7 +93,7 @@ export function MyBooking() {
                                 <b>Amount:</b> {booking.totalamount}
                             </p>
                             <p>
-                                {/* <b>Status:</b> {booking.status === 'booked' ? 'Confirmed' : 'Cancelled'} */}
+                               
                                 {booking.status=="cancelled"?<Tag color="red">Cancelled</Tag>:<Tag color="green">Confirmed</Tag>}
                             </p>
                             {booking.status!=="cancelled"&&

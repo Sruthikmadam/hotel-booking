@@ -4,21 +4,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useUser } from "../../UserContext.jsx";
-// import { useNavigate } from "react-router-dom";
+
 
 const Footer = () => {
   const { user, setUser } = useUser();
   const [loading, setLoading] = useState(true);
-  // const navigate=useNavigate()
+
   const logout = async () => {
-    
+
     try {
       await axios.get("http://localhost:5000/api/logout", {
         withCredentials: true,
       });
 
       setUser(null);
-      // navigate('/')
+
       window.location.href = "/";
 
 

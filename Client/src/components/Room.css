@@ -1,77 +1,87 @@
-.smallimg{
-    height: 200px;
-    width: 100% !important;
-    border-radius: 5px !important;
+.smallimg {
+  height: 200px;
+  width: 100% !important;
+  border-radius: 5px !important;
+}
+
+.smallimg {
+  width: 100%;
+
+
+  height: 280px;
+  border-radius: 8px;
+
+}
+
+.bigimg {
+
+  border-radius: 10px !important;
+  width: 100%;
+  height: 350px;
+}
+
+.box2 {
+  width: 100%;
+  margin-left: 30px;
+}
+
+.box1 {
+  width: 120%;
+}
+
+.container2 {
+  margin-bottom: 40px;
+  margin-right: 100px;
+  margin-right: 100px;
+  margin-top: 100px;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width:900px) {
+
+  .bigimg {
+    max-width: 500px;
+    height: 200px
   }
 
   .smallimg {
-    width: 100%; 
-    
-    
-    height: 280px;
-    border-radius: 8px; 
-    
-  }
-  .bigimg{
+    max-width: 80%;
+    height: 200px;
+    padding-left: 30px;
 
-    border-radius: 10px !important;
-    width: 100%;
-      height: 350px;
   }
-  .box2{
-    width: 100%;
-    margin-left: 30px;
+
+  .container2 {
+    max-height: fit-content;
   }
-  .box1{
-    width:120%;
+
+  .boxes {
+    flex-direction: column;
+
+    max-height: max-content;
   }
-  .container2{
+}
+
+@media (max-width:768px) {
+  .container2 {
     margin-bottom: 40px;
     margin-right: 100px;
     margin-right: 100px;
-    margin-top: 100px; 
+    margin-top: 100px;
     border-radius: 10px;
-    width: auto;
+    width: 300px;
     height: auto;
   }
 
-  @media (max-width:900px) {
-    
-    .bigimg{
-        max-width:500px;
-        height:200px
-      }
-      .smallimg{
-        max-width:80%;
-        height:200px;
-        padding-left: 30px;
-      
-      }
-      .container2{
-        max-height: fit-content;
-      }
-      .boxes{
-        flex-direction: column;
-      
-    max-height: max-content;
-      }
-    }
-    @media (max-width:768px) {
-      .container2{
-        margin-bottom: 40px;
-        margin-right: 100px;
-        margin-right: 100px;
-        margin-top: 100px; 
-        border-radius: 10px;
-        width:300px;
-        height: auto;
-      }
-      .bigimg{
-          width:100%;
-          height:200px
-        }
-        .smallimg{
-          max-width:80%;
-          height:150px
-        }
-      }
+  .bigimg {
+    width: 100%;
+    height: 200px
+  }
+
+  .smallimg {
+    max-width: 80%;
+    height: 150px
+  }
+}

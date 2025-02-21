@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const API_URL = "http://localhost:5000/api/reviews"; // Replace with your backend URL if different
+const API_URL = "http://localhost:5000/api/reviews"; 
 
 const Review = () => {
   const {roomId}=useParams();
@@ -11,7 +11,7 @@ const Review = () => {
   const [reviewText, setReviewText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Fetch reviews from the backend
+  
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -122,57 +122,4 @@ const Review = () => {
 };
 
 export default Review;
-
-
-// import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
-
-// const Review = ({ roomId }) => {
-//   const [averageRating, setAverageRating] = useState(null);
-//   const user=JSON.parse(localStorage.getItem("currentUser"))
-
-//   useEffect(() => {
-//     const fetchAverageRating = async () => {
-//       try {
-//         const response = await axios.get(`http://localhost:5000/api/reviews/average-rating/${roomId}`);
-//         setAverageRating(response.data.averageRating);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-
-//     fetchAverageRating();
-//   }, [roomId]);
-
-//   return (
-//     <div>
-//       <h2>Room Details</h2>
-//       <div>
-//         {averageRating !== null ? (
-//           <div>
-//             <h4>Average Rating: {averageRating.toFixed(1)} / 5</h4>
-//             <div>
-//               {[1, 2, 3, 4, 5].map((star) => (
-//                 <span
-//                   key={star}
-//                   style={{
-//                     color: star <= averageRating ? 'gold' : 'gray',
-//                     fontSize: '24px',
-//                   }}
-//                 >
-//                   &#9733;
-//                 </span>
-//               ))}
-//             </div>
-//           </div>
-//         ) : (
-//           <p>Loading...</p>
-//         )}
-//       </div>
-//       <RoomRating roomId={roomId} userId={user._id} /> {/* Pass actual userId */}
-//     </div>
-//   );
-// };
-
-// export default Review;
 

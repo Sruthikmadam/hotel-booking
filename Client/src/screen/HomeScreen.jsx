@@ -10,29 +10,29 @@ import moment from "moment";
 const { RangePicker } = DatePicker;
 
 function HomeScreen() {
-  const [rooms, setRooms] = useState([]); 
+  const [rooms, setRooms] = useState([]);
   const [todate, setTodate] = useState();
   const [fromdate, setFromdate] = useState();
-  const [duplicateroom, setDuplicateRoom] = useState([]); 
-   const [filterroom, setFilterRoom] = useState([]); 
-   const [filtersearch, setFiltersearch] = useState([]); 
-   const [filtertype, setFiltertype] = useState([]); 
-  
-  const [error, setError] = useState(); 
+  const [duplicateroom, setDuplicateRoom] = useState([]);
+  const [filterroom, setFilterRoom] = useState([]);
+  const [filtersearch, setFiltersearch] = useState([]);
+  const [filtertype, setFiltertype] = useState([]);
+
+  const [error, setError] = useState();
   const [loading, setLoading] = useState();
   const [searchkey, setSearchkey] = useState("");
   const [type, setType] = useState('all');
 
 
-  // Fetching rooms 
+
   useEffect(() => {
     const fetchRooms = async () => {
       try {
         setLoading(true);
         const response = await axios.get("http://localhost:5000/api/rooms/home/getallrooms");
-       
-      
-        setRooms(response.data);       
+
+
+        setRooms(response.data);
         setDuplicateRoom(response.data);
 
         setLoading(false);
@@ -47,17 +47,17 @@ function HomeScreen() {
 
 
 
-  // Filter rooms 
+
 
   const filterbyDates = (dates) => {
-  
-    if (!dates || dates.length!= 2) return;
+
+    if (!dates || dates.length != 2) return;
 
     const formattedFromDate = dates[0].format("DD-MM-YYYY");
     const formattedToDate = dates[1].format("DD-MM-YYYY");
-    console.log(formattedFromDate,formattedToDate)
+    console.log(formattedFromDate, formattedToDate)
 
-    
+
     setFromdate(formattedFromDate);
     setTodate(formattedToDate);
 
@@ -89,7 +89,7 @@ function HomeScreen() {
       return isAvailable;
     });
 
-    // Update state with filtered rooms
+
     console.log("Filtered Rooms:", filteredRooms);
     setRooms(filteredRooms);
     setFilterRoom(filteredRooms)
@@ -99,62 +99,68 @@ function HomeScreen() {
 
 
 
-const disablePastDates = (current) => {
-  return current && current < new Date().setHours(0, 0, 0, 0);
-};
+  const disablePastDates = (current) => {
+    return current && current < new Date().setHours(0, 0, 0, 0);
+  };
 
-function filterBySearch() {
-  if(filterroom.length ){
-    if(filtertype.length){
-      // console.log(filtertype)
-  const filterrooms=filtertype.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
-  setRooms(filterrooms)
-setFiltersearch(filterrooms)}
-else{ const filterrooms=filterroom.filter(room=>room.name.toLowerCase().includes(searchkey.toLowerCase()))
-  setRooms(filterrooms)
-  setFiltersearch(filterrooms)}
-}
+  function filterBySearch() {
+    if (filterroom.length) {
+      if (filtertype.length) {
 
-  else{
-  const duplicaterooms = duplicateroom.filter(room => room.name.toLowerCase().includes(searchkey.toLowerCase()))
-  setRooms(duplicaterooms)
-  }}
-
-
-function filterByType(e) {
-  setType(e)
-  if (e !== "all") {
-        if(filterroom.length){
-     
-        if(filtersearch.length){
-      const filterrooms=filtersearch.filter(room=>room.type.toLowerCase()==e.toLowerCase())
-      setRooms(filterrooms)
-      setFiltertype(filterrooms)
+        const filterrooms = filtertype.filter(room => room.name.toLowerCase().includes(searchkey.toLowerCase()))
+        setRooms(filterrooms)
+        setFiltersearch(filterrooms)
+      }
+      else {
+        const filterrooms = filterroom.filter(room => room.name.toLowerCase().includes(searchkey.toLowerCase()))
+        setRooms(filterrooms)
+        setFiltersearch(filterrooms)
+      }
     }
-    else{
-      const filterrooms=filterroom.filter(room=>room.type.toLowerCase()==e.toLowerCase())
-      setRooms(filterrooms)
-      setFiltertype(filterrooms)
-    }}
-    else{
 
-    const duplicaterooms = duplicateroom.filter(room => room.type.toLowerCase() == e.toLowerCase())
-    setRooms(duplicaterooms)
-    }}
-  
-  else {
-    setRooms(filterroom)
-    console.log(duplicateroom)
+    else {
+      const duplicaterooms = duplicateroom.filter(room => room.name.toLowerCase().includes(searchkey.toLowerCase()))
+      setRooms(duplicaterooms)
+    }
   }
-}
+
+
+  function filterByType(e) {
+    setType(e)
+    if (e !== "all") {
+      if (filterroom.length) {
+
+        if (filtersearch.length) {
+          const filterrooms = filtersearch.filter(room => room.type.toLowerCase() == e.toLowerCase())
+          setRooms(filterrooms)
+          setFiltertype(filterrooms)
+        }
+        else {
+          const filterrooms = filterroom.filter(room => room.type.toLowerCase() == e.toLowerCase())
+          setRooms(filterrooms)
+          setFiltertype(filterrooms)
+        }
+      }
+      else {
+
+        const duplicaterooms = duplicateroom.filter(room => room.type.toLowerCase() == e.toLowerCase())
+        setRooms(duplicaterooms)
+      }
+    }
+
+    else {
+      setRooms(filterroom)
+      console.log(duplicateroom)
+    }
+  }
   return (
     <div className="container1 col">
-      {/* Date picker */}
+
       <div className="row1 bs d-flex">
         <div className="col-md-3 form-control">
 
           <RangePicker format="DD-MM-YYYY"
-        onChange={(dates) => filterbyDates(dates)} disabledDate={disablePastDates} />
+            onChange={(dates) => filterbyDates(dates)} disabledDate={disablePastDates} />
         </div>
 
         <div className="col-md-5">
@@ -170,7 +176,7 @@ function filterByType(e) {
         </div>
       </div>
 
-      {/* Room listing */}
+
       <div className="row justify-content-center mt-1.5">
         {loading ? (
           <h1>Loading...</h1>
