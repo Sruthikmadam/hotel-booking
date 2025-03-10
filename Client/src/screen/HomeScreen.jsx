@@ -157,7 +157,7 @@ function HomeScreen() {
     <div className="container1 col">
 
       <div className="row1 bs d-flex">
-        <div className="col-md-3 form-control">
+        <div className="col-md-4 form-control">
 
           <RangePicker format="DD-MM-YYYY"
             onChange={(dates) => filterbyDates(dates)} disabledDate={disablePastDates} />

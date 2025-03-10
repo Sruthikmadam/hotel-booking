@@ -12,7 +12,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-
+    /* background-color: var(--hover-color); */
+    /* background-color: rgb(31, 111, 181); */
     width: 100%;
     height: 100%;
     position: relative;
@@ -45,18 +46,18 @@ header {
     position: relative;
     z-index: -1;
     top: -50px;
-
+    
 
 }
 
-.background-video {
+/* .background-video {
     width: 100%;
     position: absolute;
     overflow: hidden;
     object-fit: cover;
     margin-top: -300px;
     margin-bottom: -490px;
-}
+} */
 
 
 .hero {
@@ -78,17 +79,17 @@ header {
     text-align: center;
 }
 
-.hero-content {
+/* .hero-content {
     position: absolute;
     margin-top: 500px;
     color: rgb(6, 6, 0);
     width: auto;
     height: 30px;
-    background-color: white;
+    background-color:whitesmoke;
 
-}
+} */
 
-.clicking {
+/* .clicking {
     cursor: 'pointer';
     padding: '10px 20px';
     background: '#007bff';
@@ -98,4 +99,19 @@ header {
     text-align: 'center';
     font-size: '16px';
 
-}
+} */
+/* .hero {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    animation: slide 15s infinite linear;
+  }
+   */
+  /* @keyframes slide {
+    0% { background-image: url('../assets/hotel1.jpg'); }
+    33% { background-image: url('../assets/hotel.jpg'); }
+    66% { background-image: url('../assets/hotel3.jpg'); }
+    100% { background-image: url('../assets/hotel1.jpg'); }
+  }
+   */

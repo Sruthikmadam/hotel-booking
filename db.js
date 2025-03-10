@@ -7,12 +7,13 @@ var mongoURI=process.env.MONGODB_URI
 //   })
 
 
-
+//initial setup
 
 mongoose.connect(mongoURI)
     .then(() => console.log("MongoDB connection successful"))
     .catch(err => console.error("MongoDB connection error:", err));
 
+    //if sny network chsnges after initial dbsetup
 //   var connection=mongoose.connection;
 //   connection.on("error",()=>{
 //     console.log("error in connection")

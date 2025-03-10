@@ -123,7 +123,7 @@ const RoomratingScreen = ({ isOpen, onClose, roomId, roomName }) => {
             </div>
             <button onClick={handleSubmit}>Submit Rating</button>
           </div>) :
-          (<div className="ratingScreen justify-content-center text-center">
+          (<div className="ratingScreen justify-content-center text-center bs">
             <a href='/login' style={{ color: 'red' }} > Please log in to submit your rating for this Room: {roomName}</a>
           </div>)}
 
@@ -149,7 +149,7 @@ const RoomratingScreen = ({ isOpen, onClose, roomId, roomName }) => {
           </ul>
 
         </div>
-        <button style={{ color: 'red' }} onClick={onClose}>Close</button>
+        <button  className='modalbutton' style={{  }} onClick={onClose}>Close</button>
       </div>
 
     </div>

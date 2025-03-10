@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomeScreen from './screen/HomeScreen'
 import Footer from './components/Footer'
-import Hero from './components/Hero'
+import Hero from './components/Hero1'
 import LoginScreen from './screen/LoginScreen'
 import RegisterScreen from './screen/RegisterScreen'
 import BookScreen from './screen/BookScreen';

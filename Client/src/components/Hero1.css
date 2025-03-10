@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+root {
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* background-color: var(--hover-color); */
+  /* background-color: rgb(31, 111, 181); */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+
+
+}
+
+header {
+  position: sticky !important;
+
+  top: 0;
+  z-index: 1000;
+}
+
+
+
+
+
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    /* color: var(--hover-color); */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  
+  .hero {
+   
+    position: absolute;
+    top: 350px;
+    z-index: 10;
+  }
+  
+  .hero h1 {
+    background: linear-gradient( #f30505 , hsla(238, 96%, 47%, 0.999),#f41919);
+    background-clip: text;
+-webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari) */
+
+    color: transparent;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    /* color: var(--hover-color); */
+  }
+  
+  .hero p {
+    background: linear-gradient(#ec5e06, #dffb83, #ec5e06);
+    background-clip: text;
+-webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari) */
+
+   
+    color: transparent;
+    font-size: 2rem;
+    /* color: rgb(240, 236, 236); */
+    
+  }
+  
+
+  .slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  
+  .active {
+    opacity: 0.6;
+  }
+  

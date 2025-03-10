@@ -40,7 +40,10 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-dark text-white mt-5">
+    <footer className=" text-white mt-5"style={{ backgroundColor: "var(--primary-color)",
+    opacity:" 0.95"
+     }}
+>
       <div className="footer py-4" style={{ textAlign: "center" }}>
         <div className="row">
           <div className="col-md-4 mb-3">

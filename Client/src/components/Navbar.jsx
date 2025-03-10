@@ -32,11 +32,11 @@ function Navbar() {
     return (
         <div className='header'>
             <nav className="navbar navbar-expand-lg  ">
-                {user ? <a className="navbar-brand nav" style={{ color: 'yellow' }} href="/landing">Welcome to Paradise {user.name}</a> : <a className="navbar-brand nav" style={{ color: 'yellow' }} href="/">Paradise</a>}
+                {user ? <a className="navbar-brand nav" style={{ color: 'yellow' }} href="/landing">Welcome to Paradise {user.name}</a> : <a className="navbar-brand nav" style={{ color:'var(--hover-color)' }} href="/"> Hotel Paradise</a>}
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon mr-4">
 
-                        <i className="fa fa-bars" style={{ color: 'white' }}></i>
+                        <i className="fa fa-bars" style={{ color: 'var(--hover-color)' }}></i>
                     </span>
                 </button>
                 <div className="collapse navbar-collapse " id="navbarNav">
@@ -59,13 +59,13 @@ function Navbar() {
                                 <a className="nav-link nav kerala" href="/home">Kerala paradise</a>
                             </li>
                                 <li className="nav-item mr-5">
-                                    <a className="nav-link nav" style={{ color: 'orange' }} href="#contact-details">Contact</a>
+                                    <a className="nav-link nav" style={{ color: 'var(--hover-color)' }} href="#contact-details">Contact</a>
                                 </li>
                                 <li className="nav-item active mr-4">
-                                    <a className="nav-link nav" style={{ color: 'white' }} href="/register">Register </a>
+                                    <a className="nav-link nav" style={{ color: 'var(--hover-color)' }} href="/register">Register </a>
                                 </li>
                                 <li className="nav-item mr-5">
-                                    <a className="nav-link nav" style={{ color: 'red' }} href="/login">Login</a>
+                                    <a className="nav-link nav" style={{ color: 'var(--hover-color)' }} href="/login">Login</a>
                                 </li>
 
 

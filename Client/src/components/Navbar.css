@@ -6,17 +6,20 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary-color);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  opacity: 0.95;;
 
   width: 100%;
   z-index: 1000;
   transition: background-color 0.3s;
 }
 
-.navbar:hover {
-  background-color: rgba(25, 26, 24, 0.5);
+/* .navbar:hover { */
+  /* background-color:var(--hover-color); */
+  /* background-color: rgba(25, 26, 24, 0.5); */
 
-}
+/* } */
 
 .delhi {
   border: rgb(165, 26, 26);
@@ -67,7 +70,11 @@
 }
 
 .kerala {
-  background: linear-gradient(yellow, orange);
+  /* background: linear-gradient(yellow, orange); */
+  /* background-color:var(--button-color); */
   max-width: fit-content;
   border-radius: 30%;
+  background: linear-gradient( #f30505 , hsla(240, 4%, 79%, 0.999),#f41919);
+  -webkit-background-clip: text; /* Clip the background to the text */
+  color: transparent;
 }

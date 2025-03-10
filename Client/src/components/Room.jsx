@@ -1,17 +1,21 @@
 import React from 'react'
 import './Room.css'
 import { useState, useEffect } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
-import Roomrate from '../components/Roomrate'
+import Roomrate from '../components/Roomrate';
+
+
 
 function Room({ room, fromdate, todate }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [loading, setLoading] = useState(true);
+  console.log(room.imageurls);
+
 
   return (
     <div className='container2 row2 '>
@@ -24,10 +28,10 @@ function Room({ room, fromdate, todate }) {
             <Roomrate roomId={room._id} roomName={room.name} />
 
           </h1>
-          <b><p>Max Count:{room.maxcount}</p>
-            <p>phone Number:{room.phonenumber}</p>
-            <p>type:{room.type}</p>
-            <p>rent per day:{room.rentperday}</p></b>
+          <b><p>Max Count:{room.maxcount}</p></b>
+          <b>  <p>phone Number: {room.phonenumber}</p></b>
+          <b>  <p>type:{room.type}</p></b>
+          <b>  <p>rent per day:{room.rentperday}</p></b>
 
 
 
@@ -53,12 +57,14 @@ function Room({ room, fromdate, todate }) {
           <Modal.Body>
 
             <Carousel nextLabel="" prevLabel="" >
-              {room.imageurls.map((url) => {
+              {room.imageurls.map((url ,index) => {
                 return (
-                  <Carousel.Item>
+                  <Carousel.Item  key={index}>
                     <img
                       className='d-block w-100 bigimg' style={{ height: '280px', objectFit: 'cover' }}
                       src={url}
+                      // src={room.imageurls[0]}
+                      alt={`Slide ${index + 1}`}
 
                     />
 
@@ -66,7 +72,7 @@ function Room({ room, fromdate, todate }) {
 
                 )
 
-              })}
+               })} 
             </Carousel>
 
             <p>{room.description}</p>
