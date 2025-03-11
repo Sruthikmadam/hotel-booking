@@ -12,11 +12,14 @@
   border-radius: 8px;
 
 }
-
+/* .model {
+  margin-top: 70px;
+  height: 500px;
+} */
 .bigimg {
 
   border-radius: 10px !important;
-  width: 100%;
+  width: 90%;
   height: 350px;
 }
 
@@ -110,3 +113,9 @@
     align-items: center;
   }
 }
+
+
+
+
+
+

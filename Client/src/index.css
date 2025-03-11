@@ -252,16 +252,8 @@ select {
   }
 }
 
-/* Roomrating Screen */
-.ratingScreen {
 
 
-  padding-top: 50px;
-}
-
-.ulclass {
-  list-style-type: none
-}
 
 @media (max-width:810px) {
   .bookdetails {
@@ -277,56 +269,9 @@ select {
   }
 }
 
-/* modal popup rating */
-.modal-overlay {
-  position: fixed;
-  z-index: 10;
-  top: 300px;
-  right: 100px;
-  width: 50%;
-  padding-top: -200px;
 
-  height: 10%;
-  /* background: rgba(0, 0, 0, 0.5); */
-  /* background-color:var(--primary-color) ; */
-  /* background-color: var(--secondary-color); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
 
-}
 
-.modal-content {
-
-  /* background: rgb(162, 229, 221); */
-  background: var(--primary-color);
-  opacity: 0.98;
-color: white;
-  border-radius: 20px;
-  text-align: center;
-  max-height: 70vh;
-  overflow-y: auto;
-  position: relative;
-  overflow: auto; 
-  scrollbar-width: none;
-}
-.modalbutton:hover{
-background-color: var(--hover-color);
-color: #ddd;
-}
-.modalbutton{
-  color: 'red';
-  background:var(--button-color);
- 
-  /* position:sticky; */
-  /* right:100px ; */
-  left: 100px;
-  bottom: 0;
- 
- 
-  
-}
 
 
 .adminrow {
@@ -355,3 +300,59 @@ color: #ddd;
  @media (max-width:768px) {
   .row1 {
     margin-left: 40px;}}
+
+
+    /* roomrating */
+    .modal-overlay {
+      position: fixed;
+      z-index: 10;
+      top: 300px;
+      right: 100px;
+      width: 50%;
+      padding-top: -200px;
+    
+      height: 10%;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    
+    }
+    
+    .modal-content {
+    
+      
+      background: var(--primary-color);
+      opacity: 0.98;
+    color: white;
+      border-radius: 20px;
+      text-align: center;
+      max-height: 70vh;
+      overflow-y: auto;
+      position: relative;
+      overflow: auto; 
+      scrollbar-width: none;
+    }
+    .modalbutton:hover{
+    background-color: var(--hover-color);
+    color: #ddd;
+    }
+    .modalbutton{
+      color: 'red';
+      background:var(--button-color);
+     
+      left: 100px;
+      bottom: 0;
+     
+     
+    }  
+    .ratingScreen {
+  
+  
+      padding-top: 50px;
+    }
+    
+    .ulclass {
+      list-style-type: none
+    }

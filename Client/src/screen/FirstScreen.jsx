@@ -1,5 +1,5 @@
 import React from 'react';
-import './FirstScreen.css';
+// import './FirstScreen.css';
 import kerala from '../assets/kerala.jpg';
 import karnataka from '../assets/karnataka.jpg';
 import Delhi from '../assets/delhi1.jpg';

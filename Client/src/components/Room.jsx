@@ -63,10 +63,11 @@ function Room({ room, fromdate, todate }) {
                     <img
                       className='d-block w-100 bigimg' style={{ height: '280px', objectFit: 'cover' }}
                       src={url}
-                      // src={room.imageurls[0]}
-                      alt={`Slide ${index + 1}`}
+                       alt={`Slide ${index + 1}`}
 
                     />
+
+
 
                   </Carousel.Item>
 
@@ -84,6 +85,11 @@ function Room({ room, fromdate, todate }) {
 
           </Modal.Footer>
         </Modal>
+
+
+
+
+
       </>
 
     </div>

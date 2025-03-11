@@ -5,7 +5,8 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useUser } from '../../UserContext';
 import { useLocation } from 'react-router-dom';
-
+import './Roomrating.css'
+ 
 
 const RoomratingScreen = ({ isOpen, onClose, roomId, roomName }) => {
   if (!isOpen) return null;
