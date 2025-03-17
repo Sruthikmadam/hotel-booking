@@ -1,0 +1,650 @@
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  #root{
+    padding: 0;
+    /* /* height: 100%; */
+    } 
+  
+  :root {
+    
+  --primary-color:#504e76;
+  --secondary-color:#c4c3e3;
+  /* --secondary-color:yellow; */
+  --background-color:#fdf8e2;
+  --hover-color:#f1642e;
+  --button-color:#fcdd9d;
+  --extra-color:#a3b565;
+  
+  }
+  body {
+    /* overflow: auto; this is exta check this */
+    scrollbar-width: none; 
+  }
+  
+  
+  
+  
+  body {
+    margin: 0;
+    color: rgb(14, 12, 12);
+    background-color: var(--background-color);
+    /* background-color: #f1642e; */
+    /* background-color: rgba(182, 252, 226, 0.72); */
+    overflow-x: hidden;
+  
+  }
+  
+  .home {
+    color: black
+  }
+  
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  .btn {
+    background-color: var(--button-color);
+    
+    /* background-color: black !important; */
+    color: white;
+    /* color: white !important; */
+    box-shadow: none;
+  }
+  .btn:hover{
+    background-color: var(--hover-color);
+  }
+  
+  .bs {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 70px;
+    border: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+  }
+  
+  
+  .boxes {
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  
+  
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* background-color: #f9f9f9; */
+    background-color: var(--secondary-color);
+  }
+  
+  .room-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+  }
+  
+  
+  .button-container {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .login {
+    margin-top: 100px;
+    padding-top: 20px;
+  }
+  
+  /* registerScreen/login */
+  .container {
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-top: 100px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    line-height: 1px;
+  }
+  
+  /* loginScreen */
+  .registerlogin {
+    margin-bottom: -100px;
+    height: 100vh;
+  }
+  
+  
+  
+  .model {
+    margin-top: 70px;
+    height: 500px;
+  }
+  
+  .custom-size {
+    width: 500px;
+    height: 300px;
+    margin-top: auto;
+  
+  
+  }
+  /* homescree */
+  .ant-picker{
+    width: 100%;
+  }
+  
+  
+  /* adminscreen */
+  .adminscreen {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 100px);
+  }
+  
+  
+  
+  /* homeScreen */
+  .row1 {
+    margin-top: 150px;
+    margin-left: 50px;
+    width: 90%;
+    background-color:var(--secondary-color);
+  
+  }
+  
+  row {
+    padding-right: 200px;
+    margin-left: -200px;
+    margin-top: -60px;
+  }
+  
+  row2 {
+    margin-left: -100px;
+    margin-bottom: -100px
+  }
+  
+  .container1 {
+    margin-top: -20px;
+  }
+  
+  /* @media (max-width:900px) {
+    row {
+      flex-direction: column;
+      align-items: center;
+    margin-left: 1000px;
+    }
+  
+    .row1 {
+  
+      margin-top: 150px;
+      margin-left: 20px;
+      width: 90%;
+      flex-direction: column;
+  
+    }
+  
+    .boxes {
+      flex-direction: column;
+      overflow: hidden;
+  
+    }
+  
+    .box1 {
+      margin-left: 80px;
+    }
+  } */
+  
+  /* @media (max-width:1073px) {
+    .row2 {
+      max-width: 100%;
+  
+    }
+  
+    .box1 {
+  
+      margin-right: auto;
+      margin-left: 5px ******** here -10px
+    }
+  } */
+  
+  
+  input,
+  select {
+    box-shadow: none;
+    margin-top: 10px;
+    border: 2px solid black;
+    width: 100%;
+  
+  }
+  
+  .ant-picker {
+    border: none;
+  }
+  
+  
+  
+  /* profilesceen */
+  .profile {
+    padding-top: 80px;
+  }
+  
+  /* admin screen */
+  .adminscreen {
+    padding-top: 69px;
+  }
+  
+  
+  
+  /* bookscreen */
+
+  /* .paynow { */
+    /* changed here */
+    /* max-height: 50%; */
+    /* max-height: 100%; */
+    /* max-width: fit-content; */
+    /* added last line extra  */
+    /* margin-left: auto;     padding: 100px; */
+    /* max-height: 500px; */
+    /* width: 650px; */
+    /* width: auto; */
+  /* } */
+  .container3{
+  margin-bottom: 40px;
+    margin-right: 100px;
+    margin-right: 100px;
+    margin-top: 100px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+  }
+  /* .bookdetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    line-height: 20px;
+    
+    flex-direction: column;
+  
+  } */
+  .bookdetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* line-height: 20px ; */
+    flex-direction: column;
+}
+  div .details {
+    line-height: 70px;
+  
+  }
+  .payrow {
+    margin-top: 120px;
+    max-width: 100%;
+    max-height: 500px;
+    background-color: #f9f9f9;
+}
+  
+  /* .payrow {
+  
+    margin-top: 120px; max-width: 100%;
+    max-height: 50%;
+  
+    margin-left: -198px;    check this later 
+    background-color: #f9f9f9;
+  }
+   */
+
+   .rowbook{
+    max-height: 500px;
+    display: flex;
+}
+.roomname
+{
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    font-size: 1.75rem; 
+  }
+    .bigimgbook {
+        border-radius: 10px ;
+        width: 100% !important; 
+        max-height: 400px !important;
+    }
+    .photo img{
+        vertical-align: middle;
+        border-style: none;
+    }
+  /* container2 {
+    margin-right: -75px;
+    margin-top: 200px
+  } */
+   /* roomrating */
+   .modal-overlay {
+    position: fixed;
+    z-index: 10;
+    top: 300px;
+    right: 100px;
+    width: 50%;
+    padding-top: -200px;
+  
+    height: 10%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  
+  }
+  
+   .modal-content {
+  
+    
+    background: var(--primary-color);
+    opacity: 0.98;
+  color: white;
+    border-radius: 20px;
+    text-align: center;
+    max-height: 70vh;
+    overflow-y: auto; 
+
+
+
+    /* position: relative; check */
+    /* overflow: auto; check */
+    scrollbar-width: none;
+
+
+  }
+  .modalbutton:hover{
+  background-color: var(--hover-color);
+  color: #ddd;
+  }
+  .modalbutton{
+    color: 'red';
+    background:var(--button-color);
+   
+    left: 100px;
+    bottom: 0;
+   
+   
+  }  
+  .ratingScreen {
+
+
+    padding-top: 50px;
+  }
+  
+  .ulclass {
+    list-style-type: none
+  }
+  @media (max-width: 1160px) {
+    .bigimgbook{
+        height:400px ;
+    }
+    footer{
+        padding-bottom: 100px
+    }
+    .rowbook {
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+  }
+/* .bookdetails{
+    display: flex;
+    flex-direction: column;
+} */
+div .details {
+    line-height: 20px;
+}
+}
+  
+  @media (max-width:950px) {
+    /* .payrow {
+      line-height: 2px;
+      width: 100%;
+      margin: 50px;
+  
+    } */
+    .details {
+        line-height: 20px ;
+    }
+    .bookdetails {
+        display: flex
+    ;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        /* line-height: 7px ; */
+        flex-direction: row;
+  
+    }
+    .bigimgbook{
+        height: 300px ;
+    }
+  
+    /* .photo {
+      text-align: center;
+    } */
+  }
+  /* adding two from working */
+  .ratingScreen {
+    padding-top: 50px;
+  }
+  .ulclass {
+    list-style-type: none
+  }
+  
+  
+  
+  
+  /* @media (max-width:810px) {
+    .bookdetails {
+      line-height: 8px;
+      font-size: small;
+      text-align: center;
+    }
+  
+  
+    .bookdetails h1 {
+      font-size: small;
+      padding-bottom: 0px;
+    }
+  } */
+  
+  
+  
+  
+  
+  /* pls check this needed or not */
+  .adminrow {
+    max-width: fit-content;
+  }
+  
+  
+  
+  /* 
+  @media (max-width:962px) {
+    .row {
+      width: 100%;
+  
+    }
+    .boxes{
+      max-width:100%;
+    }
+  
+    .box1 {
+  
+      margin-right: auto;
+      margin-left: 5px
+    }
+  } */
+  
+   /* @media (max-width:768px) {
+    .row1 {
+      margin-left: 40px;}}
+   */
+  
+     
+     
+     
+  
+  @media (max-width:800px) {
+    /* .payrow {
+      line-height: 2px;
+      width: 100%;
+      margin-left: -48px;
+    }
+  
+    .paynow {
+      display: flex;
+      max-height: 100%;
+      max-width: 100%;
+      margin-right: 100px;
+    }
+  
+    .details {
+      line-height: normal;
+    } 
+   */
+    /* .container2 {
+      margin-bottom: 40px;
+      margin-right: 100px;
+      margin-top: 200px;
+      border-radius: 10px;
+    } */
+    .container3 {
+        /* margin-bottom: 40px; */
+        margin-left: 100px;
+     }
+     .details {
+      line-height: 20px;
+    } 
+      /* .row2 {
+  
+      margin-top: 150px;
+      margin-left: 20px;
+      width: 90%;
+      flex-direction: column;
+    } */
+  }
+  
+ 
+  
+  @media (max-width: 767px) {
+    .container3 {
+      margin-bottom: 40px;
+      margin-right: 100px;
+      margin-left: 100px;
+      margin-top: 100px;
+      border-radius: 10px;
+      width: auto;
+      height: auto;
+    }
+  
+    .row2 {
+  
+      margin-top: 10px;
+      margin-left: 20px;
+      width: 90%;
+      flex-direction: column;
+    }
+    .details1{
+        line-height: 20px;
+    }
+    .details2{
+        line-height: 20px;
+    }
+    }
+    @media (max-width: 630px) {
+       
+        .rowbook {
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        .bigimgbook{
+            width: 100%;
+            height: 200px;
+        }
+        div .details {
+            line-height: 10px;
+            font-size: x-small;
+        }
+        .details2{
+            margin-left: -10px;
+        }
+        hr{
+            display: none;
+        }
+        footer{
+            padding-bottom: 100px
+        }
+        /* .bookdetails{
+            gap:10px
+        }
+        .details2{
+            margin-top: 5px;
+        } */
+        .row1 {
+  
+          margin-top: 150px;
+          margin-left: 20px;
+          width: 90%;
+          flex-direction: column;
+      
+        }
+        
+    }
+    @media (max-width:400px) {
+        .container3 {
+          margin-bottom: 40px;
+          font-display: flex;
+          flex-wrap: wrap;
+      
+          margin-right: 50px;
+          margin-top: 100px;
+          border-radius: 10px;
+        }
+      
+        .row {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          margin-right: -80px;
+          margin-left: -93px;
+          margin-top: -11px;
+        }
+        div .details {
+            line-height: 10px;
+            font-size: 10px;
+
+        }
+        .row2{
+          margin-top: 10px;
+        }
+        .paybtn{
+            font-size: 10px;
+        }
+        hr{
+            display:none
+        }
+        footer{
+          padding-top: 150px;
+        }
+      
+      }

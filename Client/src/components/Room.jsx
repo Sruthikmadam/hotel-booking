@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 import Roomrate from '../components/Roomrate';
+import photo from '../assets/hotel.jpg'
 
 
 
@@ -14,8 +15,9 @@ function Room({ room, fromdate, todate }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [loading, setLoading] = useState(true);
-  console.log(room.imageurls);
-
+  // console.log(room.imageurls);
+ 
+  
 
   return (
     <div className='container2 row2 '>
@@ -51,19 +53,23 @@ function Room({ room, fromdate, todate }) {
       <>
 
         <Modal show={show} onHide={handleClose} size='lg' className='model' >
-          <Modal.Header style={{ height: '60px' }} >
+          <Modal.Header style={{ height: '64px' }} >
             <Modal.Title>{room.name}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{ height: '600px'}}>
 
             <Carousel nextLabel="" prevLabel="" >
               {room.imageurls.map((url ,index) => {
+                // console.log("images are",url);
                 return (
                   <Carousel.Item  key={index}>
+                    
                     <img
-                      className='d-block w-100 bigimg' style={{ height: '280px', objectFit: 'cover' }}
+                      className='d-block w-80 bigimg' id="roomslide" style={{ height: '100px', objectFit: 'cover'}}
                       src={url}
-                       alt={`Slide ${index + 1}`}
+                    
+                     alt={`Slide ${index + 1}`}
+                  
 
                     />
 
@@ -75,11 +81,15 @@ function Room({ room, fromdate, todate }) {
 
                })} 
             </Carousel>
-
-            <p>{room.description}</p>
+            < p className='descri'>{room.description}</p>
+           
           </Modal.Body>
+          
           <Modal.Footer style={{ height: '60px' }}>
-            <Button variant="secondary" onClick={handleClose}>
+          
+            <Button variant="secondary" style={{ display:'flex'
+              
+            }} onClick={handleClose}>
               Close
             </Button>
 

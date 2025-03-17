@@ -76,5 +76,6 @@
   border-radius: 30%;
   background: linear-gradient( #f30505 , hsla(240, 4%, 79%, 0.999),#f41919);
   -webkit-background-clip: text; /* Clip the background to the text */
+  background-clip: text;
   color: transparent;
 }

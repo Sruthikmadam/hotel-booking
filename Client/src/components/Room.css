@@ -12,15 +12,16 @@
   border-radius: 8px;
 
 }
-/* .model {
+.model {
   margin-top: 70px;
   height: 500px;
-} */
+}
 .bigimg {
 
   border-radius: 10px !important;
-  width: 90%;
-  height: 350px;
+  width: 80%;
+  height: 500px;
+  
 }
 
 .box2 {
@@ -46,11 +47,13 @@
 
   .bigimg {
     max-width: 500px;
-    height: 200px;
+    /* height: 200px; */
+    max-height: 230px;
   }
 
   .smallimg {
-    max-width: 90%;
+    max-width: 80%; 
+    /* max-width: 90%;  */
     height: 200px;
     padding-left: 30px;
 
@@ -69,7 +72,7 @@
 }
 
 @media (max-width:768px) {
-  /* .container2 {
+  .container2 {
     margin-bottom: 40px;
     margin-right: 100px;
     margin-right: 100px;
@@ -77,8 +80,8 @@
     border-radius: 10px;
     width: 300px;
     height: auto;
-  } */
-  .row1 {
+  } 
+  /* .row1 {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
@@ -86,7 +89,7 @@
   .container2 {
   width: 90%;
  margin-left: -20px;
-  }
+  } */
   .bigimg {
     width: 100%;
     height: 200px;
@@ -94,7 +97,7 @@
 
    .smallimg {
     max-width: 100%;
-    height: 150px;
+    height: 150px
     
   } 
   .box1{
@@ -114,8 +117,23 @@
   }
 }
 
+.carousel-item img {
+  display: block !important;
+  visibility: visible !important;
+  /* opacity: 1 !important; */
+  object-fit: cover !important;
+  height: 290px !important;
+  width: 100% !important;
+}
 
-
-
-
-
+.carousel,slide{
+ /* #roomslide .slide{ */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6 !important;
+  transition: opacity 1s ease-in-out;
+}

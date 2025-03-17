@@ -10,7 +10,7 @@ root {
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    /* line-height: 1.6; */
     overflow-x: hidden;
     /* background-color: var(--hover-color); */
     /* background-color: rgb(31, 111, 181); */

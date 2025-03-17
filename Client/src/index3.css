@@ -1,3 +1,4 @@
+index.css
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -153,7 +154,7 @@ h1 {
 
 }
 
-row {
+row1 {
   padding-right: 200px;
   margin-left: -200px;
 }
@@ -167,45 +168,6 @@ row2 {
   margin-top: -20px;
 }
 
-/* @media (max-width:900px) {
-  row {
-    flex-direction: column;
-    align-items: center;
-  margin-left: 1000px;
-  }
-
-  .row1 {
-
-    margin-top: 150px;
-    margin-left: 20px;
-    width: 90%;
-    flex-direction: column;
-
-  }
-
-  .boxes {
-    flex-direction: column;
-    overflow: hidden;
-
-  }
-
-  .box1 {
-    margin-left: 80px;
-  }
-} */
-
-/* @media (max-width:1073px) {
-  .row2 {
-    max-width: 100%;
-
-  }
-
-  .box1 {
-
-    margin-right: auto;
-    margin-left: 5px ******** here -10px
-  }
-} */
 
 
 input,
@@ -235,22 +197,175 @@ select {
 
 
 
+
+
+
+
+
 /* bookscreen */
-@media (max-width:810px) {
-  .payrow {
-    line-height: 2px;
-    width: 100%;
-    margin: 50px;
-
-  }
 
 
 
-
-  .photo {
-    text-align: center;
-  }
+/* Container with Fixed Height & Internal Scroll */
+.paynow1 {
+    max-width: 5000px;  /* Reduced width for better alignment */
+    max-height: 800px; /* Limits the height to prevent excessive scrolling */
+    /* overflow-y: auto;  Enables vertical scrolling inside the container if needed */
+    margin: 40px auto;
+    /* padding: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 10px;
+    max-width: 1000px;
+    max-height: 550px;
+    /* overflow-y: auto; */
+    margin: 57px auto;
+    /* padding: 20px; */
+    /* background: #fff; */
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    border-radius: 10px;
 }
+.rowbook{
+    height: 440px;
+    /* width: 100%; */
+    /* max-width: 100%; */
+    display: flex;
+    
+
+}
+/* Booking Details with Scrollable Content */
+.bookdetails {
+    flex: 1;
+    padding-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* max-height: 400px; Prevents it from expanding too much */
+    /* overflow-x: hidden;   */
+    display: flex;
+    /* flex-direction: column; */
+   
+
+    
+}
+
+/* Room Image Section */
+.photo {
+    flex: 1;
+    text-align: center;
+}
+
+.bigimgbook {
+    width: 100%;
+    max-height: fit-content;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjustments for better spacing */
+.details{
+    line-height: 25px;
+}
+.details2{
+    margin-left: -25px;
+}
+.details p {
+    /* font-size: 14px;
+    margin: 5px 0;
+    color: #666; */
+    font-size: 14px;
+    margin: 7px 27px;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .paynow1 {
+        max-height: none; /* Removes height restriction for smaller screens */
+    }
+    .photo{
+        height: 200px;
+    }
+    .photo img{
+        height: 150px;
+    }
+    .bookdetails{
+        display: flex;
+        flex-direction: row;
+    }
+    .details2{
+        margin-top: -32px;
+    }
+}
+@media (max-width: 690px) {
+   
+    .photo{
+        height: 400px;
+    }
+    .roomname{
+        font-size: 15px;
+    }
+    .bigimgbook{
+    display: none;
+    }
+}
+
+  
+  
+
+  
+  @media (max-width:400px) {
+    .container2 {
+      margin-bottom: 40px;
+      font-display: flex;
+      flex-wrap: wrap;
+  
+      margin-right: 50px;
+      margin-top: 100px;
+      border-radius: 10px;
+    }
+  
+    .row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -93px;
+      margin-top: -118px;
+    }
+  
+  }
+  
+  @media (max-width: 767px) {
+    .container2 {
+      margin-bottom: 40px;
+      margin-right: 100px;
+      margin-left: 20px;
+      margin-top: 100px;
+      border-radius: 10px;
+      width: auto;
+      height: auto;
+    }
+  
+    .row2 {
+  
+      margin-top: 150px;
+      margin-left: 20px;
+      width: 90%;
+      flex-direction: column;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+   
 /* adding two from working */
 .ratingScreen {
   padding-top: 50px;
@@ -262,19 +377,6 @@ select {
 
 
 
-@media (max-width:810px) {
-  .bookdetails {
-    line-height: 8px;
-    font-size: small;
-    text-align: center;
-  }
-
-
-  .bookdetails h1 {
-    font-size: small;
-    padding-bottom: 0px;
-  }
-}
 
 
 
@@ -287,22 +389,6 @@ select {
 
 
 
-/* 
-@media (max-width:962px) {
-  .row {
-    width: 100%;
-
-  }
-  .boxes{
-    max-width:100%;
-  }
-
-  .box1 {
-
-    margin-right: auto;
-    margin-left: 5px
-  }
-} */
 
  @media (max-width:768px) {
   .row1 {
@@ -327,7 +413,7 @@ select {
     
     }
     
-     .modal-content {
+    .modal-content {
     
       
       background: var(--primary-color);
@@ -336,15 +422,10 @@ select {
       border-radius: 20px;
       text-align: center;
       max-height: 70vh;
-      overflow-y: auto; 
-
-
-
+      overflow-y: auto;
       /* position: relative; check */
       /* overflow: auto; check */
-      /* scrollbar-width: none; check*/
-
-
+       scrollbar-width: none;
     }
     .modalbutton:hover{
     background-color: var(--hover-color);
@@ -368,5 +449,5 @@ select {
     .ulclass {
       list-style-type: none
     }
-   
-    
+
+

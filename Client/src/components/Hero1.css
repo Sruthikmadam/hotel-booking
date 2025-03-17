@@ -10,15 +10,18 @@ root {
 
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   overflow-x: hidden;
   /* background-color: var(--hover-color); */
   /* background-color: rgb(31, 111, 181); */
-  width: 100%;
-  height: 100%;
+
   position: relative;
+
+  /* width: 100%;
+  height: 100%;
+ 
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100vw; */
 
 
 }
@@ -43,20 +46,25 @@ header {
    
     /* color: var(--hover-color); */
     text-align: center;
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
   }
   
   
   .hero {
-   
-    position: absolute;
-    top: 350px;
+   display: flex; 
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   margin-top: 350px;
+    /* position: absolute; */
+    /* top: 350px; */
     z-index: 10;
   }
   
   .hero h1 {
-    background: linear-gradient( #f30505 , hsla(238, 96%, 47%, 0.999),#f41919);
+    /* background: linear-gradient( #f30505 , hsla(238, 96%, 47%, 0.999),#f41919); */
+    background: whitesmoke;
     background-clip: text;
 -webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari) */
 
@@ -67,7 +75,8 @@ header {
   }
   
   .hero p {
-    background: linear-gradient(#ec5e06, #dffb83, #ec5e06);
+    /* background: linear-gradient(#ec5e06, #dffb83, #ec5e06); */
+    background: whitesmoke;
     background-clip: text;
 -webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari) */
 
@@ -100,7 +109,23 @@ header {
   }
   
   
-  .active {
-    opacity: 0.6;
+  .active1 {
+    opacity: 0.7;
   }
   
+  @media (max-width:450px){
+   .hero p{
+      font-size:20px;
+    }
+    .hero h1{
+      font-size: 40px;
+    }
+  }  
+  /* @media (max-width:400px){
+    .hero p{
+       font-size:20px;
+     }
+     .hero h1{
+       font-size: 35px;
+     }
+   }  */

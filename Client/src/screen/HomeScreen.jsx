@@ -52,6 +52,10 @@ function HomeScreen() {
   const filterbyDates = (dates) => {
 
     if (!dates || dates.length != 2) return;
+    if (dates && dates[0] && dates[1] && dates[0].isSame(dates[1], "day")) {
+      aler("From and To dates cannot be the same.");
+      return;
+    }
 
     const formattedFromDate = dates[0].format("DD-MM-YYYY");
     const formattedToDate = dates[1].format("DD-MM-YYYY");
@@ -64,6 +68,7 @@ function HomeScreen() {
 
 
     const filteredRooms = duplicateroom.filter((room) => {
+      
       let isAvailable = true;
 
       // Check if the room has current bookings
@@ -170,8 +175,8 @@ function HomeScreen() {
         <div className="col-md-3 ">
           <select className="form-control" value={type} onChange={(e) => { filterByType(e.target.value) }}>
             <option value="all">all</option>
-            <option value="delux">delux</option>
-            <option value="non-delux">non-delux</option>
+            <option value="delux">deluxe</option>
+            <option value="non-delux">non-deluxe</option>
           </select>
         </div>
       </div>

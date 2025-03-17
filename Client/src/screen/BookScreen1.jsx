@@ -1,4 +1,4 @@
-
+// this is the copy donot touch it
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -83,18 +83,17 @@ function BookScreen() {
   }
 
   return (
-    <div className=' paynow'>
-      <div className='rowbook1 flex justify-content-center flex-d   payrow bs'>
+    <div className=' container2   paynow'>
+      <div className='row flex justify-content-center flex-d   payrow bs'>
 
         {room && (
-          <div className='rowbook flex-d ' >
+          <div className='row flex-d ' >
             <div className='col-md-7 photo'>
               <h3 className='roomname'><b> {room.name}</b> </h3>
-              <img src={room.imageurls[0]} alt="Room" className=' bigimgbook' />
+              <img src={room.imageurls[0]} alt="Room" className='bigimg' />
             </div>
             <div className='col-md-5 bookdetails flex-d'>
-             
-              <div className='details details1'>
+              <div className='details'>
                 <h1><b>Booking Details</b></h1>
                 <hr />
                 <b>
@@ -104,34 +103,30 @@ function BookScreen() {
                   <p>Max Count  :  {room.maxcount}</p>
                 </b>
               </div>
-
-              <div className='details details2'>
+              <div className='details'>
                 <h1><b> Amount</b></h1>
                 <hr />
                 <p>Total Days  :  {totaldays}</p>
                 <p>Rent per day  :  €{room.rentperday}</p>
                 <p>Total Amount  :  €{totalamount} </p>
-                <div>
+              </div>
+              <div>
 
 
-<StripeCheckout
+                <StripeCheckout
 
-  token={onToken}
-  stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH"
-  amount={totalamount * 100} // Amount in cents (e.g., $50.00)
-  currency="EUR"
-  name={room.name}
+                  token={onToken}
+                  stripeKey="pk_test_51QMQQAGqvtPyEPzCHfMb7aTbzl2p5y4SDMJt9ye3TsKV4C9TwOaZlvNovqqUZkN1Yp4cOOVuEdJucuhtYgOzMl9A00yO8jwqbH"
+                  amount={totalamount * 100} // Amount in cents (e.g., $50.00)
+                  currency="EUR"
+                  name={room.name}
 
->
-  <button className='btn btn-primary paybtn'>pay now</button>
-</StripeCheckout>
+                >
+                  <button className='btn btn-primary'>pay now</button>
+                </StripeCheckout>
 
-
-</div>
 
               </div>
-
-             
               <div>
 
 

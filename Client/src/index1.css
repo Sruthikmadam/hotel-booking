@@ -1,0 +1,310 @@
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  #root{padding: 0;
+    height: 100%;}
+  
+  :root {
+    
+  --primary-color:#504e76;
+  --secondary-color:#c4c3e3;
+  /* --secondary-color:yellow; */
+  --background-color:#fdf8e2;
+  --hover-color:#f1642e;
+  --button-color:#fcdd9d;
+  --extra-color:#a3b565;
+  
+  }
+  body {
+    /* overflow: auto; this is exta check this */
+    scrollbar-width: none; 
+  }
+  
+  
+  
+  
+  body {
+    margin: 0;
+    color: rgb(14, 12, 12);
+    background-color: var(--background-color);
+    /* background-color: #f1642e; */
+    /* background-color: rgba(182, 252, 226, 0.72); */
+    overflow-x: hidden;
+  
+  }
+  
+  .home {
+    color: black
+  }
+  
+  
+  h1 {
+    font-size: 20px;
+  }
+  
+  .btn {
+    background-color: var(--button-color);
+    
+    /* background-color: black !important; */
+    color: white;
+    /* color: white !important; */
+    box-shadow: none;
+  }
+  .btn:hover{
+    background-color: var(--hover-color);
+  }
+  
+  .bs {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 70px;
+    border: 5px;
+    padding: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+  }
+  
+  
+  .boxes {
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  
+  
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* background-color: #f9f9f9; */
+    background-color: var(--secondary-color);
+  }
+  
+  .room-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+  }
+  
+  
+  .button-container {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .login {
+    margin-top: 100px;
+    padding-top: 20px;
+  }
+  
+  /* registerScreen/login */
+  .container {
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-top: 100px;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    line-height: 1px;
+  }
+  
+  /* loginScreen */
+  .registerlogin {
+    margin-bottom: -100px;
+    height: 100vh;
+  }
+  
+  
+  
+  .model {
+    margin-top: 70px;
+    height: 500px;
+  }
+  
+  .custom-size {
+    width: 500px;
+    height: 300px;
+    margin-top: auto;
+  
+  
+  }
+  
+  
+  /* adminscreen */
+  .adminscreen {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, 100px);
+  }
+  
+  
+  
+  /* homeScreen */
+  .row1 {
+    margin-top: 150px;
+    margin-left: 50px;
+    width: 90%;
+    background-color:var(--secondary-color);
+  
+  }
+  
+  row {
+    padding-right: 200px;
+    margin-left: -200px;
+  }
+  
+  row2 {
+    margin-left: -100px;
+    margin-bottom: -100px
+  }
+  
+  .container1 {
+    margin-top: -20px;
+  }
+  
+   @media (max-width:900px) {
+    row {
+      flex-direction: column;
+      align-items: center;
+    margin-left: 1000px;
+    }
+  
+    .row1 {
+  
+      margin-top: 150px;
+      margin-left: 20px;
+      width: 90%;
+      flex-direction: column;
+  
+    }
+  
+    .boxes {
+      flex-direction: column;
+      overflow: hidden;
+  
+    }
+  
+    .box1 {
+      margin-left: 80px;
+    }
+  } 
+  
+  /* @media (max-width:1073px) {
+    .row2 {
+      max-width: 100%;
+  
+    }
+  
+    .box1 {
+  
+      margin-right: auto;
+      margin-left: 5px ******** here -10px
+    }
+  } */
+  
+  
+  input,
+  select {
+    box-shadow: none;
+    margin-top: 10px;
+    border: 2px solid black;
+    width: 100%;
+  
+  }
+  
+  .ant-picker {
+    border: none
+  }
+  
+  
+  
+  /* profilesceen */
+  .profile {
+    padding-top: 80px;
+  }
+  
+  /* admin screen */
+  .adminscreen {
+    padding-top: 69px;
+  }
+  
+  
+  
+  /* bookscreen */
+  @media (max-width:810px) {
+    .payrow {
+      line-height: 2px;
+      width: 100%;
+      margin: 50px;
+  
+    }
+  
+  
+  
+  
+    .photo {
+      text-align: center;
+    }
+  }
+  /* adding two from working */
+  .ratingScreen {
+    padding-top: 50px;
+  }
+  .ulclass {
+    list-style-type: none
+  }
+  
+  
+  
+  
+  @media (max-width:810px) {
+    .bookdetails {
+      line-height: 8px;
+      font-size: small;
+      text-align: center;
+    }
+  
+  
+    .bookdetails h1 {
+      font-size: small;
+      padding-bottom: 0px;
+    }
+  }
+  
+  
+  
+  
+  
+  /* pls check this needed or not */
+  .adminrow {
+    max-width: fit-content;
+  }
+  
+  
+  
+  
+  @media (max-width:962px) {
+    .row {
+      width: 100%;
+  
+    }
+    .boxes{
+      max-width:100%;
+    }
+  
+    .box1 {
+  
+      margin-right: auto;
+      margin-left: 5px
+    }
+  } 
+  
+   @media (max-width:768px) {
+    .row1 {
+      margin-left: 40px;}}
+  
